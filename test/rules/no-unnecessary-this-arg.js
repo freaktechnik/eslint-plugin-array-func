@@ -52,6 +52,15 @@ ruleTester.run('no-unnecessary-this-arg', rule, {
                 line: 1
             } ],
             output: null
+        },
+        {
+            code: 'array.filter((t) => t.id, null)',
+            errors: [ {
+                message: "Unnecessary this argument 'null' with an arrow function as callback to filter",
+                column: 27,
+                line: 1
+            } ],
+            output: null
         }
     ]
 });

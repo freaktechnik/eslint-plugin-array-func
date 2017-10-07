@@ -51,6 +51,7 @@ module.exports = {
                                     callback,
                                     thisArg
                                 ] = parent.arguments,
+                                // Get the params names from the callback that has the most params (since the signature is identical).
                                 params = callback.params.length > mapCallback.params.length ? callback.params : mapCallback.params,
                                 paramString = params.map((p) => p.name).join(PARAM_SEPARATOR),
                                 getCallback = (cbk, targ, ps) => {
@@ -62,6 +63,7 @@ module.exports = {
                                 },
                                 firstCallback = getCallback(callback, { name: 'this' }, paramString);
 
+                            // Try to use an arrow function for the wrapping function, fall back to a function expression if a this is specified.
                             let functionStart = `(${paramString}) => `,
                                 functionEnd = "",
                                 restParamString = '';
@@ -75,6 +77,7 @@ module.exports = {
                                     .map((p) => p.name);
                                 restParamString = PARAM_SEPARATOR + restParams.join(PARAM_SEPARATOR);
                             }
+                            // The original map callback from Array.from gets nested as a parameter to the callback from map.
                             const lastCallback = getCallback(mapCallback, mapThisArg, `${firstCallback}${restParamString}`),
                                 restParams = sourceCode.getText().substring(callback.end, parent.end);
                             return fixer.replaceTextRange([
