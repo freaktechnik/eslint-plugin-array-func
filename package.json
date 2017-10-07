@@ -34,5 +34,12 @@
   },
   "engines": {
     "node": ">= 6.8.0"
+  },
+  "repository": {
+    "type": "git",
+      "url": "https://github.com/freaktechnik/eslint-plugin-array-func.git"
+    },
+    "bugs": {
+      "url": "https://github.com/freaktechnik/eslint-plugin-array-func/issues"
   }
 }
