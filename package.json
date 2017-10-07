@@ -4,8 +4,19 @@
   "description": "Rules dealing with Array functions and methods.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "author": "Martin Giger (https://humanoids.be)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "eslint-ava-rule-tester": "^2.0.2"
+  },
+  "peerDependencies": {
+    "eslint": ">=3.0.0"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin"
+  ]
 }

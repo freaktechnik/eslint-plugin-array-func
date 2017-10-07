@@ -18,5 +18,7 @@ const methods = [
     'every'
 ];
 
-module.exports = (context) => {
+module.exports = {
+    create(context) {
+    }
 };
