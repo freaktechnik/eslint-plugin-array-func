@@ -127,3 +127,6 @@ To enable this configuration use the `extends` property in your `.eslintrc.json`
     ]
 }
 ```
+
+## License
+The `array-func` plugin is licensed under the [MIT License](LICENSE).
