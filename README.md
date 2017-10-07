@@ -4,6 +4,20 @@
 
 Rules for Array functions and methods.
 
+## Installation
+
+Install [ESLint](https://www.github.com/eslint/eslint) either locally or globally.
+
+```sh
+$ npm install -D eslint
+```
+
+If you installed `ESLint` globally, you have to install array-func plugin globally too. Otherwise, install it locally.
+
+```sh
+$ npm install -D eslint-plugin-array-func
+```
+
 ## Rules
 
 ### `from-map`
@@ -103,3 +117,13 @@ Rule | Error level
 ---- | -----------
 `from-map` | Error
 `no-unnecessary-this-arg` | Error
+
+### Using the configuration
+To enable this configuration use the `extends` property in your `.eslintrc.json` config file (may look different for other config file styles):
+```json
+{
+    "extends": [
+        "array-func/recommended"
+    ]
+}
+```
