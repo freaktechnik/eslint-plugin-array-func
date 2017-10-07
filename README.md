@@ -21,7 +21,7 @@ $ npm install -D eslint-plugin-array-func
 ## Rules
 
 ### `from-map`
-Prefer using the `mapFn` callback of `Array.from` over an immediate `.map()` call.
+Prefer using the `mapFn` callback of `Array.from` over an immediate `.map()` call on the `Array.from` result.
 
 `Array.from` has a `mapFn` callback that lets you map the items of the iterable to an array like you would with `.map()` except that values have not yet been truncated to fit types allowed in an array. Some iterables can't be directly converted to an array and thus have to be iterated either way. In that case using the mapping callback of `Array.from` avoids an iteration. See also [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Description) for an explanation of the potential benefits of using the mapping callback of `Array.from` directly.
 
