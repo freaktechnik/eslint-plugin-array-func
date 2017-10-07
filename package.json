@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-array-funcs",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Rules dealing with Array functions and methods.",
   "main": "index.js",
   "scripts": {
