@@ -21,8 +21,8 @@ ruleTester.run('from-map', rule, {
                 message: 'Use mapFn callback of Array.from instead of map()',
                 column: 1,
                 line: 1
-            } ]
-            //output: 'Array.from(iterable, (t) => t.id)' also test with this arg and existing from args
+            } ],
+            output: 'Array.from(iterable, (t) => t.id)'
         },
         {
             code: 'Array.from(iterable, (t) => t.id, a).map((t) => t[0], b)',
@@ -30,8 +30,8 @@ ruleTester.run('from-map', rule, {
                 message: 'Use mapFn callback of Array.from instead of map()',
                 column: 1,
                 line: 1
-            } ]
-            //output: 'Array.from(iterable, (t) => ((t) => t[0])(((t) => t.id)(t)), a)'
+            } ],
+            output: 'Array.from(iterable, (t) => ((t) => t[0])(((t) => t.id)(t)), a)'
         },
         {
             code: 'Array.from(iterable, function(t) { return t.id; }, a).map((t) => t[0])',
@@ -39,8 +39,8 @@ ruleTester.run('from-map', rule, {
                 message: 'Use mapFn callback of Array.from instead of map()',
                 column: 1,
                 line: 1
-            } ]
-            //output: 'Array.from(iterable, function(t) { return ((t) => t[0])((function(t) { return t.id; }).call(this, t)); }, a)'
+            } ],
+            output: 'Array.from(iterable, function(t) { return ((t) => t[0])((function(t) { return t.id; }).call(this, t)); }, a)'
         },
         {
             code: 'Array.from(iterable, function(t) { return t.id; }, a).map(function(t) { return t[0]; }, b)',
@@ -48,8 +48,8 @@ ruleTester.run('from-map', rule, {
                 message: 'Use mapFn callback of Array.from instead of map()',
                 column: 1,
                 line: 1
-            } ]
-            //output: 'Array.from(iterable, function(t) { return (function(t) { return t[0]; }).call(b, (function(t) { return t.id; }).call(this, t)); }, a)'
+            } ],
+            output: 'Array.from(iterable, function(t) { return (function(t) { return t[0]; }).call(b, (function(t) { return t.id; }).call(this, t)); }, a)'
         }
     ]
 });

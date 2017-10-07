@@ -33,8 +33,62 @@ module.exports = {
                         end: callee.loc.end
                     },
                     message: "Use mapFn callback of Array.from instead of map()",
-                    fix() {
-                        //TODO move map arguments to from. If from already has a map callback combine them?
+                    fix(fixer) {
+                        const HAS_CBK = 2,
+                            PARAM_SEPARATOR = ", ",
+                            FUNCTION_END = ")",
+                            sourceCode = context.getSourceCode();
+
+                        // Merge the from and map callbacks
+                        if(parent.arguments.length >= HAS_CBK) {
+                            const OMIT_ITEM = 1,
+                                [
+                                    mapCallback,
+                                    mapThisArg
+                                ] = node.arguments,
+                                [
+                                    _, // eslint-disable-line no-unused-vars
+                                    callback,
+                                    thisArg
+                                ] = parent.arguments,
+                                params = callback.params.length > mapCallback.params.length ? callback.params : mapCallback.params,
+                                paramString = params.map((p) => p.name).join(PARAM_SEPARATOR),
+                                getCallback = (cbk, targ, ps) => {
+                                    const source = `(${sourceCode.getText(cbk)})`;
+                                    if(targ && cbk.type !== "ArrowFunctionExpression") {
+                                        return `${source}.call(${targ.name}${PARAM_SEPARATOR}${ps})`;
+                                    }
+                                    return `${source}(${ps})`;
+                                },
+                                firstCallback = getCallback(callback, { name: 'this' }, paramString);
+
+                            let functionStart = `(${paramString}) => `,
+                                functionEnd = "",
+                                restParamString = '';
+                            if(thisArg && callback.type !== "ArrowFunctionExpression") {
+                                functionStart = `function(${paramString}) { return `;
+                                functionEnd = "; }";
+                            }
+                            if(params.length > OMIT_ITEM) {
+                                const restParams = params
+                                    .slice(OMIT_ITEM)
+                                    .map((p) => p.name);
+                                restParamString = PARAM_SEPARATOR + restParams.join(PARAM_SEPARATOR);
+                            }
+                            const lastCallback = getCallback(mapCallback, mapThisArg, `${firstCallback}${restParamString}`),
+                                restParams = sourceCode.getText().substring(callback.end, parent.end);
+                            return fixer.replaceTextRange([
+                                callback.start,
+                                node.end
+                            ], `${functionStart}${lastCallback}${functionEnd}${restParams}`);
+                        }
+
+                        // Move the map arguments to from.
+                        const [ firstArgument ] = node.arguments;
+                        return fixer.replaceTextRange([
+                            parent.end - FUNCTION_END.length,
+                            firstArgument.start
+                        ], PARAM_SEPARATOR);
                     }
                 });
             }

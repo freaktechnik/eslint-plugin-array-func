@@ -24,7 +24,7 @@ ruleTester.run('no-unnecessary-this-arg', rule, {
                 column: 35,
                 line: 1
             } ],
-            output: null
+            output: 'Array.from(iterable, (t) => t.id)'
         },
         {
             code: 'array.map((t) => t.id, a)',

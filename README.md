@@ -9,11 +9,13 @@ Rules for Array functions and methods.
 ### `from-map`
 Prefer using the `mapFn` callback of `Array.from` over an immediate `.map()` call.
 
+This rule is auto fixable. It will produce nested function calls if you use the `Array.from` map callback and have a `.map()` call following it.
+
 ### `no-unnecessary-this-arg`
 Avoid the `this` parameter when providing arrow function as callback in array functions.
 
 #### Checked functions
- - `from`
+ - `from` (fixable)
 
 #### Checked methods
  - `every`

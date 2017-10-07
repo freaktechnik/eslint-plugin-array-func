@@ -33,6 +33,13 @@ const arrayFunctions = {
             data: {
                 name: node.callee.property.name,
                 argument: argument.name
+            },
+            fix(fixer) {
+                const prevArgumentEnd = node.arguments[paramPosition + FUNC_POS].end;
+                return fixer.removeRange([
+                    prevArgumentEnd,
+                    argument.end
+                ]);
             }
         });
     },
@@ -59,7 +66,8 @@ module.exports = {
             description: "Avoid the this parameter when providing arrow function as callback in array functions.",
             recommended: true
         },
-        schema: []
+        schema: [],
+        fixable: "code"
     },
     create(context) {
         return {
