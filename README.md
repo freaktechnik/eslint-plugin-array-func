@@ -36,7 +36,7 @@ Avoid the `this` parameter when providing arrow function as callback in array fu
 
 The `this` parameter is useless when providing arrow functions, since the `this` of arrow functions can not be rebound, thus the parameter has no effect.
 
-The fix is usually to omit the paramter. The Array methods can't be auto-fixed, since the detection of array methods is not confident enough to know that the method is being called on an array.
+The fix is usually to omit the parameter. The Array methods can't be auto-fixed, since the detection of array methods is not confident enough to know that the method is being called on an array.
 
 #### Checked functions
  - `from` (fixable)
