@@ -1,16 +1,22 @@
 {
-  "name": "eslint-plugin-array-funcs",
+  "name": "eslint-plugin-array-func",
   "version": "0.0.0",
   "description": "Rules dealing with Array functions and methods.",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "lint": "eslint index.js package.json rules/ test/ --ext js,json",
+    "test": "npm run lint && nyc ava",
+    "coverage": "nyc report && codecov"
   },
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.22.0",
-    "eslint-ava-rule-tester": "^2.0.2"
+    "codecov": "^2.3.0",
+    "eslint": "^4.8.0",
+    "eslint-ava-rule-tester": "^2.0.2",
+    "eslint-plugin-freaktechnik": "^3.0.11",
+    "nyc": "^11.2.1"
   },
   "peerDependencies": {
     "eslint": ">=3.0.0"
@@ -18,5 +24,14 @@
   "keywords": [
     "eslint",
     "eslintplugin"
-  ]
+  ],
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "engines": {
+    "node": ">= 6.8.0"
+  }
 }

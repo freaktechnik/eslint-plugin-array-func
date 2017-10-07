@@ -8,13 +8,13 @@ module.exports = {
     create(context) {
         return {
             "CallExpression:exit"(node) {
-                if (!node.callee || node.callee.type !== "MemberExpression" || node.callee.property.name !== "map") {
+                if(!node.callee || node.callee.type !== "MemberExpression" || node.callee.property.name !== "map") {
                     return;
                 }
-                const callee = node.callee,
-                    parent = callee.object;
+                const { callee } = node,
+                    { object: parent } = callee;
 
-                if(!parent.callee || parent.callee.type !== "MemberExpression" || parent.callee.property.name !== "from" || !parent.callee.object || parent.callee.object.type !== "Identifier" || parent.callee.object.name !== "Array")  {
+                if(!parent.callee || parent.callee.type !== "MemberExpression" || parent.callee.property.name !== "from" || !parent.callee.object || parent.callee.object.type !== "Identifier" || parent.callee.object.name !== "Array") {
                     return;
                 }
 
@@ -25,10 +25,10 @@ module.exports = {
                         end: callee.loc.end
                     },
                     message: "Use mapFn callback of Array.from instead of map()",
-                    fix(fixer) {
+                    fix() {
                         //TODO move map arguments to from. If from already has a map callback combine them?
                     }
-                })
+                });
             }
         };
     }

@@ -45,7 +45,9 @@ ruleTester.run('from-map', rule, {
         {
             code: 'Array.from(iterable, function(t) { return t.id; }, a).map(function(t) { return t[0]; }, b)',
             errors: [ {
-                message: 'Use mapFn callback of Array.from instead of map()'
+                message: 'Use mapFn callback of Array.from instead of map()',
+                column: 1,
+                line: 1
             } ]
             //output: 'Array.from(iterable, function(t) { return (function(t) { return t[0]; }).call(b, (function(t) { return t.id; }).call(this, t)); }, a)'
         }
