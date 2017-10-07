@@ -12,7 +12,7 @@ Install [ESLint](https://www.github.com/eslint/eslint) either locally or globall
 $ npm install -D eslint
 ```
 
-If you installed `ESLint` globally, you have to install array-func plugin globally too. Otherwise, install it locally.
+If you installed `ESLint` globally, you have to install the `array-func` plugin globally too. Otherwise, install it locally.
 
 ```sh
 $ npm install -D eslint-plugin-array-func
