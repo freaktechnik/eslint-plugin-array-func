@@ -15,6 +15,7 @@
     "codecov": "^2.3.0",
     "eslint": "^4.8.0",
     "eslint-ava-rule-tester": "^2.0.2",
+    "eslint-plugin-eslint-plugin": "^1.2.0",
     "eslint-plugin-freaktechnik": "^3.0.11",
     "nyc": "^11.2.1"
   },

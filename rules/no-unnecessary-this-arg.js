@@ -54,6 +54,13 @@ const arrayFunctions = {
     };
 
 module.exports = {
+    meta: {
+        docs: {
+            description: "Avoid the this parameter when providing arrow function as callback in array functions.",
+            recommended: true
+        },
+        schema: []
+    },
     create(context) {
         return {
             "CallExpression:exit"(node) {

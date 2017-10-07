@@ -7,10 +7,10 @@ Rules for Array functions and methods.
 ## Rules
 
 ### `from-map`
-Checks that mapping of iterator items is done in the map function callback in `Array.from` and not in a directly following `.map()` call.
+Prefer using the `mapFn` callback of `Array.from` over an immediate `.map()` call.
 
 ### `no-unnecessary-this-arg`
-Warns about a `this` argument being provided to Array functions and methods when an arrow function is provided as callback.
+Avoid the `this` parameter when providing arrow function as callback in array functions.
 
 #### Checked functions
  - `from`

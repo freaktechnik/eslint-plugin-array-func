@@ -5,6 +5,14 @@
 "use strict";
 
 module.exports = {
+    meta: {
+        docs: {
+            description: "Prefer using the mapFn callback of Array.from over an immediate .map() call.",
+            recommended: true
+        },
+        fixable: "code",
+        schema: []
+    },
     create(context) {
         return {
             "CallExpression:exit"(node) {

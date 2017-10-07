@@ -1,3 +1,9 @@
 {
-    "extends": "plugin:freaktechnik/node"
+    "plugins": [
+        "eslint-plugin"
+    ],
+    "extends": [
+        "plugin:freaktechnik/node",
+        "plugin:eslint-plugin/rules-recommended"
+    ]
 }
