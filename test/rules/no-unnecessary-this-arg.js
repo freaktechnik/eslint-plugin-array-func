@@ -14,7 +14,8 @@ ruleTester.run('no-unnecessary-this-arg', rule, {
         'array.some((t) => t !== "a")',
         'Array.from(iterable, (t) => t.id)',
         'array.map(function(t) { return t.id; }, b)',
-        'Array.from(iterable, function(t) { return t.id; }, b)'
+        'Array.from(iterable, function(t) { return t.id; }, b)',
+        'array.filter(this.isGood, this)'
     ],
     invalid: [
         {

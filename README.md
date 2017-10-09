@@ -108,6 +108,8 @@ const onlyEs = array.filter(function(char) {
 array.forEach(function(char) {
     this.log(char);
 }, console);
+
+array.filter(this.isGood, this);
 ```
 
 ## `array-func/recommended` Configuration
