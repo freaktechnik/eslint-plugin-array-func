@@ -3,7 +3,7 @@
         "eslint-plugin"
     ],
     "extends": [
-        "plugin:freaktechnik/test",
+        "@freaktechnik/eslint-config-test",
         "plugin:eslint-plugin/tests-recommended"
     ]
 }

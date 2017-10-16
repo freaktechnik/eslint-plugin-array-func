@@ -3,7 +3,7 @@
         "eslint-plugin"
     ],
     "extends": [
-        "plugin:freaktechnik/node",
+        "@freaktechnik/eslint-config-node",
         "plugin:eslint-plugin/rules-recommended"
     ]
 }
