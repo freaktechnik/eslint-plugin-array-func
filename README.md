@@ -5,19 +5,19 @@
 Rules for Array functions and methods.
 
 ## Contents
- - [Installation](#Installation)
- - [Rules](#Rules)
+ - [Installation](#installation)
+ - [Rules](#rules)
    - [`from-map`](#from-map)
-     - [Examples](#Examples)
+     - [Examples](#examples)
    - [`no-unnecessary-this-arg`](#no-unnecessary-this-arg)
      - [Checked Functions](#checked-functions)
      - [Checked Methods](#checked-methods)
-     - [Examples](#Examples2)
+     - [Examples](#examples-1)
    - [`prefer-array-from`](#prefer-array-from)
-     - [Examples](#Examples3)
- - [`array-func/recommended` Configuration](#array-func-recommended-configuration)
+     - [Examples](#examples-2)
+ - [`array-func/recommended` Configuration](#array-funcrecommended-configuration)
    - [Using the Configuration](#using-the-configuration)
- - [License](#License)
+ - [License](#license)
 
 ## Installation
 
