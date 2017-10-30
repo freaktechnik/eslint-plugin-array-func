@@ -4,6 +4,13 @@
  */
 "use strict";
 
+const {
+    isMethod,
+    getParent,
+    isOnObject
+} = require("../lib/helpers/call-expression");
+const { ARROW_FUNCTION_EXPRESSION } = require("../lib/type");
+
 module.exports = {
     meta: {
         docs: {
@@ -16,13 +23,13 @@ module.exports = {
     create(context) {
         return {
             "CallExpression:exit"(node) {
-                if(!node.callee || node.callee.type !== "MemberExpression" || node.callee.property.name !== "map") {
+                if(!isMethod(node, "map")) {
                     return;
                 }
                 const { callee } = node,
-                    { object: parent } = callee;
+                    parent = getParent(node);
 
-                if(!parent.callee || parent.callee.type !== "MemberExpression" || parent.callee.property.name !== "from" || !parent.callee.object || parent.callee.object.type !== "Identifier" || parent.callee.object.name !== "Array") {
+                if(!isMethod(parent, "from") || !isOnObject(parent, "Array")) {
                     return;
                 }
 
@@ -56,7 +63,7 @@ module.exports = {
                                 paramString = params.map((p) => p.name).join(PARAM_SEPARATOR),
                                 getCallback = (cbk, targ, ps) => {
                                     const source = `(${sourceCode.getText(cbk)})`;
-                                    if(targ && cbk.type !== "ArrowFunctionExpression") {
+                                    if(targ && cbk.type !== ARROW_FUNCTION_EXPRESSION) {
                                         return `${source}.call(${targ.name}${PARAM_SEPARATOR}${ps})`;
                                     }
                                     return `${source}(${ps})`;
@@ -67,7 +74,7 @@ module.exports = {
                             let functionStart = `(${paramString}) => `,
                                 functionEnd = "",
                                 restParamString = '';
-                            if(thisArg && callback.type !== "ArrowFunctionExpression") {
+                            if(thisArg && callback.type !== ARROW_FUNCTION_EXPRESSION) {
                                 functionStart = `function(${paramString}) { return `;
                                 functionEnd = "; }";
                             }

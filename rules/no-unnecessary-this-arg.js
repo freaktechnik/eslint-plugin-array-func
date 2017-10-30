@@ -4,6 +4,12 @@
  */
 "use strict";
 
+const {
+    isMethod,
+    isOnObject
+} = require("../lib/helpers/call-expression");
+const { ARROW_FUNCTION_EXPRESSION } = require("../lib/type");
+
 const arrayFunctions = {
         from: 3
     },
@@ -20,9 +26,10 @@ const arrayFunctions = {
     METHOD_ARG = 2,
     POS_TO_ARRAY = 1,
     FUNC_POS = -2,
-    checkFunction = (node, functionName, argumentPosition) => !node.callee || node.callee.type !== "MemberExpression" || node.callee.property.name !== functionName || node.arguments.length < argumentPosition || node.arguments[argumentPosition + FUNC_POS].type !== "ArrowFunctionExpression",
+    //TODO should also check if the identifier is not an arrow function expression. Similar problem to array detection.
+    checkFunction = (node, functionName, argumentPosition) => !isMethod(node, functionName) || node.arguments.length < argumentPosition || node.arguments[argumentPosition + FUNC_POS].type !== ARROW_FUNCTION_EXPRESSION,
     checkArrayFunction = (functionName, paramPosition, node, context) => {
-        if(checkFunction(node, functionName, paramPosition) || node.callee.object.name !== "Array") {
+        if(checkFunction(node, functionName, paramPosition) || !isOnObject(node, "Array")) {
             return;
         }
         const argument = node.arguments[paramPosition - POS_TO_ARRAY];
