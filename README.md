@@ -4,6 +4,21 @@
 
 Rules for Array functions and methods.
 
+## Contents
+ - [Installation](#Installation)
+ - [Rules](#Rules)
+   - [`from-map`](#from-map)
+     - [Examples](#Examples)
+   - [`no-unnecessary-this-arg`](#no-unnecessary-this-arg)
+     - [Checked Functions](#checked-functions)
+     - [Checked Methods](#checked-methods)
+     - [Examples](#Examples2)
+   - [`prefer-array-from`](#prefer-array-from)
+     - [Examples](#Examples3)
+ - [`array-func/recommended` Configuration](#array-func-recommended-configuration)
+   - [Using the Configuration](#using-the-configuration)
+ - [License](#License)
+
 ## Installation
 
 Install [ESLint](https://www.github.com/eslint/eslint) either locally or globally.
@@ -52,10 +67,10 @@ The `this` parameter is useless when providing arrow functions, since the `this`
 
 The fix is usually to omit the parameter. The Array methods can't be auto-fixed, since the detection of array methods is not confident enough to know that the method is being called on an array.
 
-#### Checked functions
+#### Checked Functions
  - `from` (fixable)
 
-#### Checked methods
+#### Checked Methods
  - `every`
  - `filter`
  - `find`
@@ -112,15 +127,40 @@ array.forEach(function(char) {
 array.filter(this.isGood, this);
 ```
 
+### `prefer-array-from`
+Use `Array.from` instead of `[...iterable]` for performance benefits.
+
+This rule is auto fixable.
+
+#### Examples
+Code that triggers this rule:
+```js
+const iterable = [..."string"];
+
+const arrayCopy = [...iterable];
+```
+
+Code that doesn't trigger this rule:
+```js
+const array = [1, 2, 3];
+
+const extendedArray =  [0, ...array];
+
+const arrayCopy = Array.from(array);
+
+const characterArray = Array.from("string");
+```
+
 ## `array-func/recommended` Configuration
 The recommended configuration will set your parser ECMA Version to 2015, since that's when the Array functions and methods were added.
 
-Rule | Error level
----- | -----------
-`from-map` | Error
-`no-unnecessary-this-arg` | Error
+Rule | Error level | Fixable
+---- | ----------- | -------
+`from-map` | Error | Yes
+`no-unnecessary-this-arg` | Error | Sometimes
+`prefer-array-from` | Error | Yes
 
-### Using the configuration
+### Using the Configuration
 To enable this configuration use the `extends` property in your `.eslintrc.json` config file (may look different for other config file styles):
 ```json
 {
