@@ -15,10 +15,10 @@
     "@freaktechnik/eslint-config-test": "^6.0.0",
     "ava": "^0.24.0",
     "codecov": "^3.0.0",
-    "eslint": "^4.10.0",
+    "eslint": "^4.14.0",
     "eslint-ava-rule-tester": "^2.0.2",
     "eslint-plugin-eslint-plugin": "^1.2.0",
-    "nyc": "^11.3.0"
+    "nyc": "^11.4.1"
   },
   "peerDependencies": {
     "eslint": ">=3.0.0"
