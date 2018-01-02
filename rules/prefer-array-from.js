@@ -15,7 +15,7 @@ const SINGLE_ELEMENT = 1,
 module.exports = {
     meta: {
         docs: {
-            description: "Prefer using Array.from over spreading an interable in an array literal.",
+            description: "Prefer using Array.from over spreading an iterable in an array literal.",
             recommended: true
         },
         schema: [],
