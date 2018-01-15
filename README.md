@@ -15,6 +15,8 @@ Rules for Array functions and methods.
      - [Examples](#examples-1)
    - [`prefer-array-from`](#prefer-array-from)
      - [Examples](#examples-2)
+   - [`avoid-reverse`](#avoid-reverse)
+     - [Examples](#examples-3)
  - [`array-func/recommended` Configuration](#array-funcrecommended-configuration)
    - [Using the Configuration](#using-the-configuration)
  - [License](#license)
@@ -151,6 +153,42 @@ const arrayCopy = Array.from(array);
 const characterArray = Array.from("string");
 ```
 
+### `avoid-reverse`
+Avoid reversing the array and running a method on it if there is an equivalent
+of the method operating on the array from the other end.
+
+There are two operations with such equivalents: `indexOf` with `lastIndexOf` and
+`reduce` with `reduceRight`.
+
+This rule is auto fixable.
+
+#### Examples
+Code that triggers this rule:
+```js
+const lastIndex = array.reverse().indexOf(1);
+
+const firstIndex = array.reverse().lastIndexOf(1);
+
+const sum = array.reverse().reduce((p, c) => p + c, 0);
+
+const reverseSum = array.reverse().reduceRight((p, c) => p + c, 0);
+```
+
+Code that doesn't trigger this rule:
+```js
+const lastIndex = array.lastIndexOf(1);
+
+const firstIndex = array.indexOf(1);
+
+const sum = array.reduce((p, c) => p + c, 0);
+
+const reverseSum = array.reduceRight((p, c) => p + c, 0);
+
+const reverseArray = array.reverse();
+
+const reverseMap = array.reverse().map((r) => r + 1);
+```
+
 ## `array-func/recommended` Configuration
 The recommended configuration will set your parser ECMA Version to 2015, since that's when the Array functions and methods were added.
 
@@ -159,6 +197,7 @@ Rule | Error level | Fixable
 `from-map` | Error | Yes
 `no-unnecessary-this-arg` | Error | Sometimes
 `prefer-array-from` | Error | Yes
+`avoid-reverse` | Error | Yes
 
 ### Using the Configuration
 To enable this configuration use the `extends` property in your `.eslintrc.json` config file (may look different for other config file styles):
