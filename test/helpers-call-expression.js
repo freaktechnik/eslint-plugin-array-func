@@ -1,6 +1,10 @@
 import test from 'ava';
-import { isMethod, getParent, isOnObject } from '../lib/helpers/call-expression';
-import { MEMBER_EXPRESSION, IDENTIFIER } from '../lib/type';
+import {
+    isMethod, getParent, isOnObject
+} from '../lib/helpers/call-expression';
+import {
+    MEMBER_EXPRESSION, IDENTIFIER
+} from '../lib/type';
 
 test('is method', (t) => {
     const name = "test";

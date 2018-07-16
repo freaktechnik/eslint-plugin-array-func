@@ -5,16 +5,16 @@
 "use strict";
 
 const {
-    isMethod,
-    getParent
-} = require("../lib/helpers/call-expression");
+        isMethod,
+        getParent
+    } = require("../lib/helpers/call-expression"),
 
-const REPLACEMENTS = {
-    indexOf: "lastIndexOf",
-    reduce: "reduceRight",
-    lastIndexOf: "indexOf",
-    reduceRight: "reduce"
-};
+    REPLACEMENTS = {
+        indexOf: "lastIndexOf",
+        reduce: "reduceRight",
+        lastIndexOf: "indexOf",
+        reduceRight: "reduce"
+    };
 
 module.exports = {
     meta: {

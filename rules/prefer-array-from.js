@@ -4,9 +4,9 @@
  */
 "use strict";
 
-const { SPREAD_ELEMENT } = require("../lib/type");
+const { SPREAD_ELEMENT } = require("../lib/type"),
 
-const SINGLE_ELEMENT = 1,
+    SINGLE_ELEMENT = 1,
     firstElement = (arr) => {
         const [ el ] = arr;
         return el;

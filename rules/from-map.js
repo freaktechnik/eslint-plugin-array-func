@@ -5,11 +5,11 @@
 "use strict";
 
 const {
-    isMethod,
-    getParent,
-    isOnObject
-} = require("../lib/helpers/call-expression");
-const { ARROW_FUNCTION_EXPRESSION } = require("../lib/type");
+        isMethod,
+        getParent,
+        isOnObject
+    } = require("../lib/helpers/call-expression"),
+    { ARROW_FUNCTION_EXPRESSION } = require("../lib/type");
 
 module.exports = {
     meta: {

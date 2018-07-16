@@ -5,12 +5,12 @@
 "use strict";
 
 const {
-    isMethod,
-    isOnObject
-} = require("../lib/helpers/call-expression");
-const { ARROW_FUNCTION_EXPRESSION } = require("../lib/type");
+        isMethod,
+        isOnObject
+    } = require("../lib/helpers/call-expression"),
+    { ARROW_FUNCTION_EXPRESSION } = require("../lib/type"),
 
-const arrayFunctions = {
+    arrayFunctions = {
         from: 3
     },
     // All have param location 2

@@ -11,14 +11,14 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^6.0.0",
-    "@freaktechnik/eslint-config-test": "^6.0.0",
+    "@freaktechnik/eslint-config-node": "^6.4.4",
+    "@freaktechnik/eslint-config-test": "^6.4.4",
     "ava": "^0.25.0",
-    "codecov": "^3.0.0",
-    "eslint": "^4.14.0",
+    "codecov": "^3.0.4",
+    "eslint": "^5.1.0",
     "eslint-ava-rule-tester": "^2.0.2",
-    "eslint-plugin-eslint-plugin": "^1.2.0",
-    "nyc": "^11.4.1"
+    "eslint-plugin-eslint-plugin": "^1.4.0",
+    "nyc": "^12.0.2"
   },
   "peerDependencies": {
     "eslint": ">=3.0.0"
