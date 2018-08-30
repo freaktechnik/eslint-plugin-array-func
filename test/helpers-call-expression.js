@@ -1,6 +1,6 @@
 import test from 'ava';
 import {
-    isMethod, getParent, isOnObject
+    isMethod, isOnObject
 } from '../lib/helpers/call-expression';
 import {
     MEMBER_EXPRESSION, IDENTIFIER
@@ -37,15 +37,6 @@ test('not is method', (t) => {
             }
         }
     }));
-});
-
-test('get parent', (t) => {
-    const parent = 'foo';
-    t.is(getParent({
-        callee: {
-            object: parent
-        }
-    }), parent);
 });
 
 test('is on object', (t) => {

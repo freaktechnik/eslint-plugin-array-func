@@ -4,10 +4,7 @@
  */
 "use strict";
 
-const {
-        isMethod,
-        getParent
-    } = require("../lib/helpers/call-expression"),
+const { isMethod } = require("../lib/helpers/call-expression"),
 
     REPLACEMENTS = {
         indexOf: "lastIndexOf",
@@ -27,16 +24,12 @@ module.exports = {
     },
     create(context) {
         return {
-            "CallExpression:exit"(node) {
+            'CallExpression[callee.type="MemberExpression"] > MemberExpression > CallExpression[callee.property.name="reverse"]'(node) {
+                const parent = node;
+                node = parent.parent.parent;
                 if(Object.keys(REPLACEMENTS).every((m) => !isMethod(node, m))) {
                     return;
                 }
-
-                const parent = getParent(node);
-                if(!isMethod(parent, 'reverse')) {
-                    return;
-                }
-
                 const reversed = REPLACEMENTS[node.callee.property.name];
 
                 context.report({

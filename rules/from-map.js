@@ -4,12 +4,7 @@
  */
 "use strict";
 
-const {
-        isMethod,
-        getParent,
-        isOnObject
-    } = require("../lib/helpers/call-expression"),
-    { ARROW_FUNCTION_EXPRESSION } = require("../lib/type");
+const { ARROW_FUNCTION_EXPRESSION } = require("../lib/type");
 
 module.exports = {
     meta: {
@@ -22,16 +17,10 @@ module.exports = {
     },
     create(context) {
         return {
-            "CallExpression:exit"(node) {
-                if(!isMethod(node, "map")) {
-                    return;
-                }
-                const { callee } = node,
-                    parent = getParent(node);
-
-                if(!isMethod(parent, "from") || !isOnObject(parent, "Array")) {
-                    return;
-                }
+            'CallExpression[callee.type="MemberExpression"] > MemberExpression[property.name="map"] > CallExpression[callee.type="MemberExpression"][callee.property.name="from"][callee.object.type="Identifier"][callee.object.name="Array"]'(node) {
+                const parent = node,
+                    callee = node.parent;
+                node = callee.parent;
 
                 context.report({
                     node: callee.property,
