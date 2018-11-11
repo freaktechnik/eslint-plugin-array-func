@@ -20,7 +20,7 @@ Rules for Array functions and methods.
   - [`prefer-flat-map`](#prefer-flat-map)
     - [Examples](#examples-4)
   - [`prefer-flat`](#prefer-flat)
-    - [Examples](#examples-55)
+    - [Examples](#examples-5)
 - [Configurations](#configurations)
   - [`array-func/recommended` Configuration](#array-funcrecommended-configuration)
     - [Using the Configuration](#using-the-configuration)
