@@ -5,27 +5,27 @@
 Rules for Array functions and methods.
 
 ## Contents
- - [Installation](#installation)
- - [Rules](#rules)
-   - [`from-map`](#from-map)
-     - [Examples](#examples)
-   - [`no-unnecessary-this-arg`](#no-unnecessary-this-arg)
-     - [Checked Functions](#checked-functions)
-     - [Checked Methods](#checked-methods)
-     - [Examples](#examples-1)
-   - [`prefer-array-from`](#prefer-array-from)
-     - [Examples](#examples-2)
-   - [`avoid-reverse`](#avoid-reverse)
-     - [Examples](#examples-3)
-   - [`prefer-flat-map`](#prefer-flat-map)
-     - [Examples](#examples-4)
-   - [`prefer-flat`](#prefer-flat)
-     - [Examples](#examples-55)
- - [Configurations](#configurations)
-   - [`array-func/recommended` Configuration](#array-funcrecommended-configuration)
-     - [Using the Configuration](#using-the-configuration)
-   - [`array-func/all` Configuration](#array-funcall-configuration)
- - [License](#license)
+- [Installation](#installation)
+- [Rules](#rules)
+  - [`from-map`](#from-map)
+    - [Examples](#examples)
+  - [`no-unnecessary-this-arg`](#no-unnecessary-this-arg)
+    - [Checked Functions](#checked-functions)
+    - [Checked Methods](#checked-methods)
+    - [Examples](#examples-1)
+  - [`prefer-array-from`](#prefer-array-from)
+    - [Examples](#examples-2)
+  - [`avoid-reverse`](#avoid-reverse)
+    - [Examples](#examples-3)
+  - [`prefer-flat-map`](#prefer-flat-map)
+    - [Examples](#examples-4)
+  - [`prefer-flat`](#prefer-flat)
+    - [Examples](#examples-55)
+- [Configurations](#configurations)
+  - [`array-func/recommended` Configuration](#array-funcrecommended-configuration)
+    - [Using the Configuration](#using-the-configuration)
+  - [`array-func/all` Configuration](#array-funcall-configuration)
+- [License](#license)
 
 ## Installation
 
@@ -76,16 +76,16 @@ The `this` parameter is useless when providing arrow functions, since the `this`
 The fix is usually to omit the parameter. The Array methods can't be auto-fixed, since the detection of array methods is not confident enough to know that the method is being called on an array.
 
 #### Checked Functions
- - `from` (fixable)
+- `from` (fixable)
 
 #### Checked Methods
- - `every`
- - `filter`
- - `find`
- - `findIndex`
- - `forEach`
- - `map`
- - `some`
+- `every`
+- `filter`
+- `find`
+- `findIndex`
+- `forEach`
+- `map`
+- `some`
 
 #### Examples
 Code that triggers this rule:
@@ -262,9 +262,9 @@ Rule | Error level | Fixable
 To enable this configuration use the `extends` property in your `.eslintrc.json` config file (may look different for other config file styles):
 ```json
 {
-    "extends": [
-        "array-func/recommended"
-    ]
+  "extends": [
+    "array-func/recommended"
+  ]
 }
 ```
 
