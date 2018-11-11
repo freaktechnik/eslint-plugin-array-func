@@ -17,8 +17,14 @@ Rules for Array functions and methods.
      - [Examples](#examples-2)
    - [`avoid-reverse`](#avoid-reverse)
      - [Examples](#examples-3)
- - [`array-func/recommended` Configuration](#array-funcrecommended-configuration)
-   - [Using the Configuration](#using-the-configuration)
+   - [`prefer-flat-map`](#prefer-flat-map)
+     - [Examples](#examples-4)
+   - [`prefer-flat`](#prefer-flat)
+     - [Examples](#examples-55)
+ - [Configurations](#configurations)
+   - [`array-func/recommended` Configuration](#array-funcrecommended-configuration)
+     - [Using the Configuration](#using-the-configuration)
+   - [`array-func/all` Configuration](#array-funcall-configuration)
  - [License](#license)
 
 ## Installation
@@ -189,7 +195,60 @@ const reverseArray = array.reverse();
 const reverseMap = array.reverse().map((r) => r + 1);
 ```
 
-## `array-func/recommended` Configuration
+### `prefer-flat-map`
+Use `.flatMap()` to flatten an array and map the values instead of using
+`.flat().map()`.
+
+This rule is auto fixable.
+
+#### Examples
+Code that triggers this rule:
+```js
+const flattenedAndMapped = array.flat().map((p) => p);
+```
+
+Code that doesn't trigger this rule:
+```js
+const oneAction = array.flatMap((m) => m);
+
+const flattened = array.flat();
+
+const mapped = array.map((r) => r + 1);
+
+const mappedThenFlattened = array.map((r) => r + 1).flat();
+
+const flatMappedWithExtra = array.flat().reverse().map((r) => r + 1);
+```
+
+### `prefer-flat`
+Use `.flat()` to flatten an array of arrays. This rule currently recognizes two
+patterns and can replace them with a `.flat()` call:
+
+- `[].concat(...array)`
+- `array.reduce((p, n) => p.concat(n), [])`
+
+This rule is auto fixable.
+
+#### Examples
+Code that triggers this rule:
+```js
+const concatFlat = [].concat(...array);
+
+const reduceFlat = array.reduce((p, n) => p.concat(n), []);
+```
+
+Code that doesn't trigger this rule:
+```js
+const flattened = array.flat();
+
+const reverseFlat = array.reduce((p, n) => n.concat(p), []);
+
+const otherReduce = array.reduce((p, n) => n + p, 0);
+```
+
+## Configurations
+
+### `array-func/recommended` Configuration
 The recommended configuration will set your parser ECMA Version to 2015, since that's when the Array functions and methods were added.
 
 Rule | Error level | Fixable
@@ -199,7 +258,7 @@ Rule | Error level | Fixable
 `prefer-array-from` | Error | Yes
 `avoid-reverse` | Error | Yes
 
-### Using the Configuration
+#### Using the Configuration
 To enable this configuration use the `extends` property in your `.eslintrc.json` config file (may look different for other config file styles):
 ```json
 {
@@ -208,6 +267,20 @@ To enable this configuration use the `extends` property in your `.eslintrc.json`
     ]
 }
 ```
+
+### `array-func/all` Configuration
+The recommended configuration does not include all rules, since some Array methods
+were added after ES2015. The all configuration enables all rules the plugin
+contains and sets the ECMA version appropriately.
+
+Rule | Error level | Fixable
+---- | ----------- | -------
+`from-map` | Error | Yes
+`no-unnecessary-this-arg` | Error | Sometimes
+`prefer-array-from` | Error | Yes
+`avoid-reverse` | Error | Yes
+`prefer-flat-map` | Error | Yes
+`prefer-flat` | Error | Yes
 
 ## License
 The `array-func` plugin is licensed under the [MIT License](LICENSE).

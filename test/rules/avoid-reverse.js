@@ -8,7 +8,7 @@ const ruleTester = new AvaRuleTester(test, {
     }
 });
 
-ruleTester.run('from-map', rule, {
+ruleTester.run('avoid-reverse', rule, {
     valid: [
         'array.lastIndexOf(1)',
         'array.indexOf(1)',

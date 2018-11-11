@@ -23,6 +23,17 @@ module.exports = {
                 "array-func/prefer-array-from": "error",
                 "array-func/avoid-reverse": "error"
             }
+        },
+        all: {
+            parserOptions: {
+                ecmaVersion: 2018
+            },
+            plugins: [ 'array-func' ],
+            rules: {
+                "array-func/prefer-flat-map": "error",
+                "array-func/prefer-flat": "error"
+            },
+            extends: [ 'plugin:array-func/recommended' ]
         }
     }
 };

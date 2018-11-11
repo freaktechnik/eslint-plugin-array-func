@@ -10,7 +10,7 @@ const ruleTester = new AvaRuleTester(test, {
 
 const message = "Use Array.from to convert from iterable to array";
 
-ruleTester.run('from-map', rule, {
+ruleTester.run('perfer-array-from', rule, {
     valid: [
         'Array.from(new Set())',
         'Array.from(iterable)',
