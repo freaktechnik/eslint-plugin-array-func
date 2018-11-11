@@ -263,7 +263,7 @@ To enable this configuration use the `extends` property in your `.eslintrc.json`
 ```json
 {
   "extends": [
-    "array-func/recommended"
+    "plugin:array-func/recommended"
   ]
 }
 ```
