@@ -9,7 +9,9 @@ module.exports = {
         "from-map": require("./rules/from-map"),
         "no-unnecessary-this-arg": require("./rules/no-unnecessary-this-arg"),
         "prefer-array-from": require("./rules/prefer-array-from"),
-        "avoid-reverse": require("./rules/avoid-reverse")
+        "avoid-reverse": require("./rules/avoid-reverse"),
+        "prefer-flat-map": require("./rules/prefer-flat-map"),
+        "prefer-flat": require("./rules/prefer-flat")
     },
     configs: {
         recommended: {
