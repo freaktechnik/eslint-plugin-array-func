@@ -9,7 +9,7 @@ const { isMethod } = require("../lib/helpers/call-expression"),
     REPLACEMENTS = {
         indexOf: "lastIndexOf",
         reduce: "reduceRight",
-        // lastIndexOf: "indexOf", would need some more logic for the auto fixer (array.length - array.lastIndefOf)
+        lastIndexOf: "indexOf",
         reduceRight: "reduce"
     };
 
@@ -40,6 +40,15 @@ module.exports = {
                     },
                     message: `Prefer using ${reversed} over reversing the array and ${node.callee.property.name}`,
                     fix(fixer) {
+                        if(reversed === "lastIndexOf" || reversed === "indexOf") {
+                            return [
+                                fixer.insertTextBefore(parent.callee, `${parent.callee.object.name}.length - 1 - `),
+                                fixer.replaceTextRange([
+                                    parent.callee.property.start,
+                                    node.callee.property.end
+                                ], reversed)
+                            ];
+                        }
                         return fixer.replaceTextRange([
                             parent.callee.property.start,
                             node.callee.property.end

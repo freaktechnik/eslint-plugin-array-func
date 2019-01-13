@@ -25,7 +25,7 @@ ruleTester.run('avoid-reverse', rule, {
                 column: 7,
                 line: 1
             } ],
-            output: 'array.lastIndexOf(1)'
+            output: 'array.length - 1 - array.lastIndexOf(1)'
         },
         {
             code: 'array.reverse().lastIndexOf(1)',
@@ -34,7 +34,7 @@ ruleTester.run('avoid-reverse', rule, {
                 column: 7,
                 line: 1
             } ],
-            output: 'array.indexOf(1)'
+            output: 'array.length - 1 - array.indexOf(1)'
         },
         {
             code: 'array.reverse().reduce((p, c) => p + c, 0)',
