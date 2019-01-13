@@ -9,7 +9,7 @@ const { isMethod } = require("../lib/helpers/call-expression"),
     REPLACEMENTS = {
         indexOf: "lastIndexOf",
         reduce: "reduceRight",
-        lastIndexOf: "indexOf",
+        // lastIndexOf: "indexOf", would need some more logic for the auto fixer (array.length - array.lastIndefOf)
         reduceRight: "reduce"
     };
 
