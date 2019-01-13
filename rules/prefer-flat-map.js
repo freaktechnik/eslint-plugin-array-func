@@ -7,7 +7,7 @@
 module.exports = {
     meta: {
         docs: {
-            description: "Prefer using the flatMap over an immediate .map() call after a .flat().",
+            description: "Prefer using the flatMap over an immediate .flat() call after a .map().",
             recommended: true
         },
         fixable: "code",
@@ -15,7 +15,7 @@ module.exports = {
     },
     create(context) {
         return {
-            'CallExpression[callee.type="MemberExpression"] > MemberExpression[property.name="map"] > CallExpression[callee.type="MemberExpression"][callee.property.name="flat"]'(node) {
+            'CallExpression[callee.type="MemberExpression"] > MemberExpression[property.name="flat"] > CallExpression[callee.type="MemberExpression"][callee.property.name="map"]'(node) {
                 const parent = node,
                     callee = node.parent;
                 node = callee.parent;
@@ -26,12 +26,18 @@ module.exports = {
                         start: parent.callee.property.loc.start,
                         end: callee.loc.end
                     },
-                    message: "Use flatMap instead of .flat().map()",
+                    message: "Use flatMap instead of .map().flat()",
                     fix(fixer) {
-                        return fixer.replaceTextRange([
-                            parent.callee.property.start,
-                            node.callee.property.end
-                        ], 'flatMap');
+                        return [
+                            fixer.replaceTextRange([
+                                parent.callee.property.start,
+                                parent.callee.property.end
+                            ], 'flatMap'),
+                            fixer.removeRange([
+                                callee.object.end,
+                                callee.parent.end
+                            ])
+                        ];
                     }
                 });
             }

@@ -13,16 +13,27 @@ ruleTester.run('prefer-flat-map', rule, {
         'array.flatMap((m) => m)',
         'array.flat()',
         'array.map((r) => r + 1)',
-        'array.map((r) => r + 1).flat()',
-        'array.flat().reverse().map((r) => r + 1)'
+        'array.flat().map((r) => r + 1)',
+        'array.map((r) => r + 1).reverse().flat()'
     ],
-    invalid: [ {
-        code: 'array.flat().map((p) => p)',
-        errors: [ {
-            message: 'Use flatMap instead of .flat().map()',
-            column: 7,
-            line: 1
-        } ],
-        output: 'array.flatMap((p) => p)'
-    } ]
+    invalid: [
+        {
+            code: 'array.map((p) => p).flat()',
+            errors: [ {
+                message: 'Use flatMap instead of .map().flat()',
+                column: 7,
+                line: 1
+            } ],
+            output: 'array.flatMap((p) => p)'
+        },
+        {
+            code: 'foo(); array.map((p) => p).flat(); test();',
+            errors: [ {
+                message: 'Use flatMap instead of .map().flat()',
+                column: 14,
+                line: 1
+            } ],
+            output: 'foo(); array.flatMap((p) => p); test();'
+        }
+    ]
 });
