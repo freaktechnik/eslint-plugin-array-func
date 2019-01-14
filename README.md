@@ -204,7 +204,7 @@ This rule is auto fixable.
 #### Examples
 Code that triggers this rule:
 ```js
-const flattenedAndMapped = array.flat().map((p) => p);
+const flattenedAndMapped = array.map((p) => p).flat();
 ```
 
 Code that doesn't trigger this rule:
@@ -215,9 +215,9 @@ const flattened = array.flat();
 
 const mapped = array.map((r) => r + 1);
 
-const mappedThenFlattened = array.map((r) => r + 1).flat();
+const mappedThenFlattened = array.flat().map((r) => r + 1);
 
-const flatMappedWithExtra = array.flat().reverse().map((r) => r + 1);
+const flatMappedWithExtra = array.map((r) => r + 1).reverse().flat();
 ```
 
 ### `prefer-flat`
