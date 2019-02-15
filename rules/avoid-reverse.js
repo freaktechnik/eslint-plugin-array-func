@@ -7,9 +7,7 @@
 const { isMethod } = require("../lib/helpers/call-expression"),
 
     REPLACEMENTS = {
-        indexOf: "lastIndexOf",
         reduce: "reduceRight",
-        lastIndexOf: "indexOf",
         reduceRight: "reduce"
     };
 
@@ -20,7 +18,8 @@ module.exports = {
             recommended: true
         },
         schema: [],
-        fixable: "code"
+        fixable: "code",
+        type: "suggestion"
     },
     create(context) {
         return {
@@ -40,15 +39,6 @@ module.exports = {
                     },
                     message: `Prefer using ${reversed} over reversing the array and ${node.callee.property.name}`,
                     fix(fixer) {
-                        if(reversed === "lastIndexOf" || reversed === "indexOf") {
-                            return [
-                                fixer.insertTextBefore(parent.callee, `${parent.callee.object.name}.length - 1 - `),
-                                fixer.replaceTextRange([
-                                    parent.callee.property.start,
-                                    node.callee.property.end
-                                ], reversed)
-                            ];
-                        }
                         return fixer.replaceTextRange([
                             parent.callee.property.start,
                             node.callee.property.end

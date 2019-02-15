@@ -11,7 +11,8 @@ module.exports = {
             recommended: true
         },
         fixable: "code",
-        schema: []
+        schema: [],
+        type: "suggestion"
     },
     create(context) {
         return {

@@ -13,6 +13,7 @@ module.exports = {
             recommended: true
         },
         fixable: "code",
+        type: "suggestion",
         schema: []
     },
     create(context) {

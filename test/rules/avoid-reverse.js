@@ -19,24 +19,6 @@ ruleTester.run('avoid-reverse', rule, {
     ],
     invalid: [
         {
-            code: 'array.reverse().indexOf(1)',
-            errors: [ {
-                message: 'Prefer using lastIndexOf over reversing the array and indexOf',
-                column: 7,
-                line: 1
-            } ],
-            output: 'array.length - 1 - array.lastIndexOf(1)'
-        },
-        {
-            code: 'array.reverse().lastIndexOf(1)',
-            errors: [ {
-                message: 'Prefer using indexOf over reversing the array and lastIndexOf',
-                column: 7,
-                line: 1
-            } ],
-            output: 'array.length - 1 - array.indexOf(1)'
-        },
-        {
             code: 'array.reverse().reduce((p, c) => p + c, 0)',
             errors: [ {
                 message: 'Prefer using reduceRight over reversing the array and reduce',

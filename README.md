@@ -163,18 +163,13 @@ const characterArray = Array.from("string");
 Avoid reversing the array and running a method on it if there is an equivalent
 of the method operating on the array from the other end.
 
-There are two operations with such equivalents: `indexOf` with `lastIndexOf` and
-`reduce` with `reduceRight`.
+There are two operations with such equivalents: `reduce` with `reduceRight`.
 
 This rule is auto fixable.
 
 #### Examples
 Code that triggers this rule:
 ```js
-const lastIndex = array.reverse().indexOf(1);
-
-const firstIndex = array.reverse().lastIndexOf(1);
-
 const sum = array.reverse().reduce((p, c) => p + c, 0);
 
 const reverseSum = array.reverse().reduceRight((p, c) => p + c, 0);
@@ -182,10 +177,6 @@ const reverseSum = array.reverse().reduceRight((p, c) => p + c, 0);
 
 Code that doesn't trigger this rule:
 ```js
-const lastIndex = array.lastIndexOf(1);
-
-const firstIndex = array.indexOf(1);
-
 const sum = array.reduce((p, c) => p + c, 0);
 
 const reverseSum = array.reduceRight((p, c) => p + c, 0);
