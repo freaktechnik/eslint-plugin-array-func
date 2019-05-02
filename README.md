@@ -244,10 +244,10 @@ The recommended configuration will set your parser ECMA Version to 2015, since t
 
 Rule | Error level | Fixable
 ---- | ----------- | -------
-`from-map` | Error | Yes
-`no-unnecessary-this-arg` | Error | Sometimes
-`prefer-array-from` | Error | Yes
-`avoid-reverse` | Error | Yes
+`array-func/from-map` | Error | Yes
+`array-func/no-unnecessary-this-arg` | Error | Sometimes
+`array-func/prefer-array-from` | Error | Yes
+`array-func/avoid-reverse` | Error | Yes
 
 #### Using the Configuration
 To enable this configuration use the `extends` property in your `.eslintrc.json` config file (may look different for other config file styles):
@@ -266,12 +266,12 @@ contains and sets the ECMA version appropriately.
 
 Rule | Error level | Fixable
 ---- | ----------- | -------
-`from-map` | Error | Yes
-`no-unnecessary-this-arg` | Error | Sometimes
-`prefer-array-from` | Error | Yes
-`avoid-reverse` | Error | Yes
-`prefer-flat-map` | Error | Yes
-`prefer-flat` | Error | Yes
+`array-func/from-map` | Error | Yes
+`array-func/no-unnecessary-this-arg` | Error | Sometimes
+`array-func/prefer-array-from` | Error | Yes
+`array-func/avoid-reverse` | Error | Yes
+`array-func/prefer-flat-map` | Error | Yes
+`array-func/prefer-flat` | Error | Yes
 
 ## License
 The `array-func` plugin is licensed under the [MIT License](LICENSE).
