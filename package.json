@@ -15,7 +15,7 @@
   "devDependencies": {
     "@freaktechnik/eslint-config-node": "^6.5.4",
     "@freaktechnik/eslint-config-test": "^6.5.4",
-    "ava": "^1.2.1",
+    "ava": "^2.0.0",
     "codecov": "^3.2.0",
     "eclint": "^2.8.1",
     "eslint": "^5.14.0",
