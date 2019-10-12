@@ -1,4 +1,7 @@
 {
+    "parserOptions": {
+        "sourceType": "module"
+    },
     "plugins": [
         "eslint-plugin"
     ],
