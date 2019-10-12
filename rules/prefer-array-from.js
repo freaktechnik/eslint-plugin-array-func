@@ -12,12 +12,12 @@ const firstElement = (arr) => {
 module.exports = {
     meta: {
         docs: {
-            description: "Prefer using Array.from over spreading an iterable in an array literal.",
+            description: "Prefer using Array.from over spreading an iterable in an array literal. Using Array.from also preserves the original type of TypedArrays while mapping.",
             recommended: true
         },
         schema: [],
         fixable: "code",
-        type: "suggestion"
+        type: "problem"
     },
     create(context) {
         return {

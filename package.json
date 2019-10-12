@@ -13,15 +13,15 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^6.5.4",
-    "@freaktechnik/eslint-config-test": "^6.5.4",
-    "ava": "^2.0.0",
-    "codecov": "^3.2.0",
+    "@freaktechnik/eslint-config-node": "^6.6.2",
+    "@freaktechnik/eslint-config-test": "^6.6.2",
+    "ava": "^2.4.0",
+    "codecov": "^3.6.1",
     "eclint": "^2.8.1",
-    "eslint": "^6.0.1",
+    "eslint": "^6.5.1",
     "eslint-ava-rule-tester": "^3.0.0",
-    "eslint-plugin-eslint-plugin": "^2.0.1",
-    "nyc": "^14.0.0"
+    "eslint-plugin-eslint-plugin": "^2.1.0",
+    "nyc": "^14.1.1"
   },
   "peerDependencies": {
     "eslint": ">=3.0.0"
