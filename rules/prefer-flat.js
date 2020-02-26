@@ -6,11 +6,11 @@
 
 //TODO no works.
 
-const firstElement = (arr) => {
-        const [ el ] = arr;
-        return el;
-    },
-    SECOND = 1;
+const
+    firstElement = ([ first ]) => first,
+    secondElement = ([
+        , second
+    ]) => second;
 
 module.exports = {
     meta: {
@@ -36,10 +36,15 @@ module.exports = {
                     }
                 });
             },
-            'CallExpression[callee.type="MemberExpression"][callee.property.name="reduce"] > *:function > CallExpression[callee.type="MemberExpression"][callee.property.name="concat"]'(node) {
-                if(node.parent.parent.arguments.length > SECOND && node.parent.parent.arguments[SECOND].type === "ArrayExpression" &&
-                    firstElement(node.arguments).name === node.parent.params[SECOND].name &&
-                    node.callee.object.name === firstElement(node.parent.params).name) {
+            'CallExpression[callee.type="MemberExpression"][callee.property.name="reduce"][arguments.length=2][arguments.1.type=ArrayExpression][arguments.1.elements.length=0] > *:function[params.length=2][params.0.type=Identifier][params.1.type=Identifier] > CallExpression[callee.type="MemberExpression"][callee.property.name="concat"][arguments.length=1][arguments.0.type=Identifier]'(node) {
+                const reduceCallbackParams = node.parent.params;
+
+                // arr.reducer((a, b) => a.concat(b), [])
+                // "concat" function must be called on "a" and concat argument must be "b".
+                if(
+                    firstElement(node.arguments).name === secondElement(reduceCallbackParams).name &&
+                    node.callee.object.name === firstElement(reduceCallbackParams).name
+                ) {
                     context.report({
                         node: node.parent.parent,
                         message: "Use flat to flatten an array",
