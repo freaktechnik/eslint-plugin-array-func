@@ -15,6 +15,7 @@ ruleTester.run('prefer-flat', rule, {
         'array.reduce((p, n) => n + p, 0)',
         'array.reduce((p, []) => p.concat({}), [])',
         'array.reduce((p, n) => p.concat(n), [1])',
+        'array.reduce((p, n) => p.concat(n))',
         'array.reduce((p, n) => p.concat(n, n), [])'
     ],
     invalid: [

@@ -1,5 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable no-magic-numbers */
 /**
  * @author Martin Giger
  * @license MIT
@@ -8,10 +6,11 @@
 
 //TODO no works.
 
-const firstElement = (arr) => {
-    const [ el ] = arr;
-    return el;
-};
+const
+    firstElement = ([ first ]) => first,
+    secondElement = ([
+        , second
+    ]) => second;
 
 module.exports = {
     meta: {
@@ -37,35 +36,13 @@ module.exports = {
                     }
                 });
             },
-            'CallExpression[callee.type="MemberExpression"][callee.property.name="reduce"] > *:function > CallExpression[callee.type="MemberExpression"][callee.property.name="concat"]'(node) {
-                const concatFunction = node,
-                    reduceFunction = node.parent.parent,
-                    reduceCallbackParams = node.parent.params;
-
-                // reduce function must have two args
-                if(reduceFunction.arguments.length !== 2) {
-                    return;
-                }
-
-                // reduce callback arguments must be 2 and all must be Identifier
-                if(reduceCallbackParams.length !== 2 || reduceCallbackParams[0].type !== 'Identifier' || reduceCallbackParams[1].type !== 'Identifier') {
-                    return;
-                }
-
-                // reduce function must have empty array as initial values
-                if(reduceFunction.arguments[1].type !== "ArrayExpression" || reduceFunction.arguments[1].elements.length !== 0) {
-                    return;
-                }
-
-                // concat function must have one argument which must be variable
-                if(concatFunction.arguments.length !== 1 || concatFunction.arguments[0].type !== 'Identifier') {
-                    return;
-                }
+            'CallExpression[callee.type="MemberExpression"][callee.property.name="reduce"][arguments.length=2][arguments.1.type=ArrayExpression][arguments.1.elements.length=0] > *:function[params.length=2][params.0.type=Identifier][params.1.type=Identifier] > CallExpression[callee.type="MemberExpression"][callee.property.name="concat"][arguments.length=1][arguments.0.type=Identifier]'(node) {
+                const reduceCallbackParams = node.parent.params;
 
                 // concat callee object name must be same as reducer callback accumulator and
                 // concat argument must be same as reducer callback item
-                if(concatFunction.arguments[0].name !== reduceCallbackParams[1].name ||
-                    node.callee.object.name !== reduceCallbackParams[0].name
+                if(firstElement(node.arguments).name !== secondElement(reduceCallbackParams).name ||
+                    node.callee.object.name !== firstElement(reduceCallbackParams).name
                 ) {
                     return;
                 }
