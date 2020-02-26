@@ -76,7 +76,7 @@ module.exports = {
                             }
                             // The original map callback from Array.from gets nested as a parameter to the callback from map.
                             const lastCallback = getCallback(mapCallback, mapThisArg, `${firstCallback}${restParamString}`),
-                                restParams = sourceCode.getText().substring(callback.end, parent.end);
+                                restParams = sourceCode.getText().slice(callback.end, parent.end);
                             return fixer.replaceTextRange([
                                 callback.start,
                                 node.end
