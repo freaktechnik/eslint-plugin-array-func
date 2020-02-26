@@ -28,11 +28,11 @@ const {
     FUNC_POS = -2,
     //TODO should also check if the identifier is not an arrow function expression. Similar problem to array detection.
     checkFunction = (node, functionName, argumentPosition) => !isMethod(node, functionName) || node.arguments.length < argumentPosition || node.arguments[argumentPosition + FUNC_POS].type !== ARROW_FUNCTION_EXPRESSION,
-    checkArrayFunction = (functionName, paramPosition, node, context) => {
-        if(checkFunction(node, functionName, paramPosition) || !isOnObject(node, "Array")) {
+    checkArrayFunction = (functionName, parameterPosition, node, context) => {
+        if(checkFunction(node, functionName, parameterPosition) || !isOnObject(node, "Array")) {
             return;
         }
-        const argument = node.arguments[paramPosition - POS_TO_ARRAY];
+        const argument = node.arguments[parameterPosition - POS_TO_ARRAY];
         context.report({
             node: argument,
             loc: argument.loc,
@@ -42,9 +42,9 @@ const {
                 argument: argument.name
             },
             fix(fixer) {
-                const prevArgumentEnd = node.arguments[paramPosition + FUNC_POS].end;
+                const previousArgumentEnd = node.arguments[parameterPosition + FUNC_POS].end;
                 return fixer.removeRange([
-                    prevArgumentEnd,
+                    previousArgumentEnd,
                     argument.end
                 ]);
             }

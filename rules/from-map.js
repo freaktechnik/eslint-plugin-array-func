@@ -41,16 +41,16 @@ module.exports = {
                             const OMIT_ITEM = 1,
                                 [
                                     mapCallback,
-                                    mapThisArg
+                                    mapThisArgument
                                 ] = node.arguments,
                                 [
                                     _, // eslint-disable-line no-unused-vars
                                     callback,
-                                    thisArg
+                                    thisArgument
                                 ] = parent.arguments,
                                 // Get the params names from the callback that has the most params (since the signature is identical).
-                                params = callback.params.length > mapCallback.params.length ? callback.params : mapCallback.params,
-                                paramString = params.map((p) => p.name).join(PARAM_SEPARATOR),
+                                parameters = callback.params.length > mapCallback.params.length ? callback.params : mapCallback.params,
+                                parameterString = parameters.map((p) => p.name).join(PARAM_SEPARATOR),
                                 getCallback = (cbk, targ, ps) => {
                                     const source = `(${sourceCode.getText(cbk)})`;
                                     if(targ && cbk.type !== ARROW_FUNCTION_EXPRESSION) {
@@ -58,29 +58,29 @@ module.exports = {
                                     }
                                     return `${source}(${ps})`;
                                 },
-                                firstCallback = getCallback(callback, { name: 'this' }, paramString);
+                                firstCallback = getCallback(callback, { name: 'this' }, parameterString);
 
                             // Try to use an arrow function for the wrapping function, fall back to a function expression if a this is specified.
-                            let functionStart = `(${paramString}) => `,
+                            let functionStart = `(${parameterString}) => `,
                                 functionEnd = "",
-                                restParamString = '';
-                            if(thisArg && callback.type !== ARROW_FUNCTION_EXPRESSION) {
-                                functionStart = `function(${paramString}) { return `;
+                                restParameterString = '';
+                            if(thisArgument && callback.type !== ARROW_FUNCTION_EXPRESSION) {
+                                functionStart = `function(${parameterString}) { return `;
                                 functionEnd = "; }";
                             }
-                            if(params.length > OMIT_ITEM) {
-                                const restParams = params
+                            if(parameters.length > OMIT_ITEM) {
+                                const restParameters_ = parameters
                                     .slice(OMIT_ITEM)
                                     .map((p) => p.name);
-                                restParamString = PARAM_SEPARATOR + restParams.join(PARAM_SEPARATOR);
+                                restParameterString = PARAM_SEPARATOR + restParameters_.join(PARAM_SEPARATOR);
                             }
                             // The original map callback from Array.from gets nested as a parameter to the callback from map.
-                            const lastCallback = getCallback(mapCallback, mapThisArg, `${firstCallback}${restParamString}`),
-                                restParams = sourceCode.getText().slice(callback.end, parent.end);
+                            const lastCallback = getCallback(mapCallback, mapThisArgument, `${firstCallback}${restParameterString}`),
+                                restParameters = sourceCode.getText().slice(callback.end, parent.end);
                             return fixer.replaceTextRange([
                                 callback.start,
                                 node.end
-                            ], `${functionStart}${lastCallback}${functionEnd}${restParams}`);
+                            ], `${functionStart}${lastCallback}${functionEnd}${restParameters}`);
                         }
 
                         // Move the map arguments to from.

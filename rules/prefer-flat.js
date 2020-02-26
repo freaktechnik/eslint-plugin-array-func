@@ -37,13 +37,13 @@ module.exports = {
                 });
             },
             'CallExpression[callee.type="MemberExpression"][callee.property.name="reduce"][arguments.length=2][arguments.1.type=ArrayExpression][arguments.1.elements.length=0] > *:function[params.length=2][params.0.type=Identifier][params.1.type=Identifier] > CallExpression[callee.type="MemberExpression"][callee.property.name="concat"][arguments.length=1][arguments.0.type=Identifier]'(node) {
-                const reduceCallbackParams = node.parent.params;
+                const reduceCallbackParameters = node.parent.params;
 
                 // arr.reducer((a, b) => a.concat(b), [])
                 // "concat" function must be called on "a" and concat argument must be "b".
                 if(
-                    firstElement(node.arguments).name === secondElement(reduceCallbackParams).name &&
-                    node.callee.object.name === firstElement(reduceCallbackParams).name
+                    firstElement(node.arguments).name === secondElement(reduceCallbackParameters).name &&
+                    node.callee.object.name === firstElement(reduceCallbackParameters).name
                 ) {
                     context.report({
                         node: node.parent.parent,

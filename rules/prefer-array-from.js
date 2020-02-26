@@ -4,9 +4,9 @@
  */
 "use strict";
 
-const firstElement = (arr) => {
-    const [ el ] = arr;
-    return el;
+const firstElement = (array) => {
+    const [ element ] = array;
+    return element;
 };
 
 module.exports = {
