@@ -1,6 +1,6 @@
 # eslint-plugin-array-func
 
- [![Build Status](https://travis-ci.com/freaktechnik/eslint-plugin-array-func.svg?branch=master)](https://travis-ci.com/freaktechnik/eslint-plugin-array-func) [![codecov](https://codecov.io/gh/freaktechnik/eslint-plugin-array-func/branch/master/graph/badge.svg)](https://codecov.io/gh/freaktechnik/eslint-plugin-array-func)
+[![Build Status](https://travis-ci.com/freaktechnik/eslint-plugin-array-func.svg?branch=master)](https://travis-ci.com/freaktechnik/eslint-plugin-array-func) [![codecov](https://codecov.io/gh/freaktechnik/eslint-plugin-array-func/branch/master/graph/badge.svg)](https://codecov.io/gh/freaktechnik/eslint-plugin-array-func)
 
 Rules for Array functions and methods.
 
