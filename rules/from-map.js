@@ -76,18 +76,18 @@ module.exports = {
                             }
                             // The original map callback from Array.from gets nested as a parameter to the callback from map.
                             const lastCallback = getCallback(mapCallback, mapThisArgument, `${firstCallback}${restParameterString}`),
-                                restParameters = sourceCode.getText().slice(callback.end, parent.end);
+                                restParameters = sourceCode.getText().slice(callback.loc.end.column, parent.loc.end.column);
                             return fixer.replaceTextRange([
-                                callback.start,
-                                node.end
+                                callback.loc.start.column,
+                                node.loc.end.column
                             ], `${functionStart}${lastCallback}${functionEnd}${restParameters}`);
                         }
 
                         // Move the map arguments to from.
                         const [ firstArgument ] = node.arguments;
                         return fixer.replaceTextRange([
-                            parent.end - FUNCTION_END.length,
-                            firstArgument.start
+                            parent.loc.end.column - FUNCTION_END.length,
+                            firstArgument.loc.start.column
                         ], PARAM_SEPARATOR);
                     }
                 });
