@@ -16,13 +16,15 @@
     "@ava/babel": "^1.0.1",
     "@freaktechnik/eslint-config-node": "^7.1.0",
     "@freaktechnik/eslint-config-test": "^7.1.0",
+    "@typescript-eslint/parser": "^2.25.0",
     "ava": "^3.5.2",
     "codecov": "^3.6.5",
     "eclint": "^2.8.1",
     "eslint": "^6.8.0",
     "eslint-ava-rule-tester": "^4.0.0",
     "eslint-plugin-eslint-plugin": "^2.2.1",
-    "nyc": "^15.0.1"
+    "nyc": "^15.0.1",
+    "typescript": "^3.8.3"
   },
   "peerDependencies": {
     "eslint": ">=3.0.0"
@@ -49,6 +51,10 @@
   },
   "dependencies": {},
   "ava": {
-    "babel": true
+    "babel": true,
+    "files": [
+      "test/**/*",
+      "!test/helpers"
+    ]
   }
 }

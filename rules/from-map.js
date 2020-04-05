@@ -76,18 +76,32 @@ module.exports = {
                             }
                             // The original map callback from Array.from gets nested as a parameter to the callback from map.
                             const lastCallback = getCallback(mapCallback, mapThisArgument, `${firstCallback}${restParameterString}`),
-                                restParameters = sourceCode.getText().slice(callback.end, parent.end);
+                                [
+                                    callbackStartLocation
+                                    , callbackEndLocation
+                                ] = callback.range,
+                                [
+                                    , parentEndLocation
+                                ] = parent.range,
+                                [
+                                    , nodeEndLocation
+                                ] = node.range,
+                                restParameters = sourceCode.getText().slice(callbackEndLocation, parentEndLocation);
                             return fixer.replaceTextRange([
-                                callback.start,
-                                node.end
+                                callbackStartLocation,
+                                nodeEndLocation
                             ], `${functionStart}${lastCallback}${functionEnd}${restParameters}`);
                         }
 
                         // Move the map arguments to from.
-                        const [ firstArgument ] = node.arguments;
+                        const [ firstArgument ] = node.arguments,
+                            [ argumentStartLocation ] = firstArgument.range,
+                            [
+                                , parentEndLocation
+                            ] = parent.range;
                         return fixer.replaceTextRange([
-                            parent.end - FUNCTION_END.length,
-                            firstArgument.start
+                            parentEndLocation - FUNCTION_END.length,
+                            argumentStartLocation
                         ], PARAM_SEPARATOR);
                     }
                 });
