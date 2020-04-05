@@ -76,18 +76,32 @@ module.exports = {
                             }
                             // The original map callback from Array.from gets nested as a parameter to the callback from map.
                             const lastCallback = getCallback(mapCallback, mapThisArgument, `${firstCallback}${restParameterString}`),
-                                restParameters = sourceCode.getText().slice(callback.loc.end.column, parent.loc.end.column);
+                                [
+                                    callbackStartLocation
+                                    , callbackEndLocation
+                                ] = callback.range,
+                                [
+                                    , parentEndLocation
+                                ] = parent.range,
+                                [
+                                    , nodeEndLocation
+                                ] = node.range,
+                                restParameters = sourceCode.getText().slice(callbackEndLocation, parentEndLocation);
                             return fixer.replaceTextRange([
-                                callback.loc.start.column,
-                                node.loc.end.column
+                                callbackStartLocation,
+                                nodeEndLocation
                             ], `${functionStart}${lastCallback}${functionEnd}${restParameters}`);
                         }
 
                         // Move the map arguments to from.
-                        const [ firstArgument ] = node.arguments;
+                        const [ firstArgument ] = node.arguments,
+                            [ argumentStartLocation ] = firstArgument.range,
+                            [
+                                , parentEndLocation
+                            ] = parent.range;
                         return fixer.replaceTextRange([
-                            parent.loc.end.column - FUNCTION_END.length,
-                            firstArgument.loc.start.column
+                            parentEndLocation - FUNCTION_END.length,
+                            argumentStartLocation
                         ], PARAM_SEPARATOR);
                     }
                 });
