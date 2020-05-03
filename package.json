@@ -8,7 +8,9 @@
     "lint:ec": "eclint check $(git ls-files)",
     "lint": "npm run lint:js && npm run lint:ec",
     "test": "npm run lint && nyc ava",
-    "coverage": "nyc report && codecov"
+    "coverage": "nyc report && codecov",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
@@ -49,12 +51,15 @@
   "bugs": {
     "url": "https://github.com/freaktechnik/eslint-plugin-array-func/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "snyk": "^1.316.2"
+  },
   "ava": {
     "babel": true,
     "files": [
       "test/**/*",
       "!test/helpers"
     ]
-  }
+  },
+  "snyk": true
 }
