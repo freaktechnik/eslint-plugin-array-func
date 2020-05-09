@@ -50,3 +50,7 @@ patch:
         patched: '2020-05-03T04:29:42.914Z'
     - nyc > istanbul-lib-instrument > @babel/core > @babel/helpers > @babel/traverse > @babel/helper-function-name > @babel/helper-get-function-arity > @babel/types > lodash:
         patched: '2020-05-03T04:29:42.914Z'
+    - '@freaktechnik/eslint-config-node > @freaktechnik/eslint-config-base > eslint-plugin-unicorn > lodash':
+        patched: '2020-05-09T13:44:10.269Z'
+    - '@freaktechnik/eslint-config-test > @freaktechnik/eslint-config-node > @freaktechnik/eslint-config-base > eslint-plugin-unicorn > lodash':
+        patched: '2020-05-09T13:44:10.269Z'
