@@ -14,6 +14,6 @@ block_comment_start = /*
 block_comment = *
 block_comment_end = */
 
-[{package.json,.travis.yml,package-lock.json,codecov.yml,.all-contributorsrc,README.md}]
+[{package.json,.travis.yml,package-lock.json,codecov.yml,.all-contributorsrc,README.md,.snyk}]
 indent_style = space
 indent_size = 2
