@@ -52,7 +52,7 @@
     "url": "https://github.com/freaktechnik/eslint-plugin-array-func/issues"
   },
   "dependencies": {
-    "snyk": "^1.319.2"
+    "snyk": "^1.321.0"
   },
   "ava": {
     "babel": true,
