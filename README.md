@@ -196,6 +196,8 @@ This rule is auto fixable.
 Code that triggers this rule:
 ```js
 const flattenedAndMapped = array.map((p) => p).flat();
+
+const flatWithDefaultDepth = array.map((r) => r).flat(1);
 ```
 
 Code that doesn't trigger this rule:
@@ -209,6 +211,8 @@ const mapped = array.map((r) => r + 1);
 const mappedThenFlattened = array.flat().map((r) => r + 1);
 
 const flatMappedWithExtra = array.map((r) => r + 1).reverse().flat();
+
+const flatWithDepth = array.map((p) => p).flat(99);
 ```
 
 ### `prefer-flat`

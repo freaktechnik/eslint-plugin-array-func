@@ -16,7 +16,7 @@ module.exports = {
     },
     create(context) {
         return {
-            'CallExpression[callee.type="MemberExpression"] > MemberExpression[property.name="flat"] > CallExpression[callee.type="MemberExpression"][callee.property.name="map"]'(node) {
+            'CallExpression[callee.type="MemberExpression"]:matches([arguments.length=0],[arguments.0.type="Literal"][arguments.0.value=1]) > MemberExpression[property.name="flat"] > CallExpression[callee.type="MemberExpression"][callee.property.name="map"]'(node) {
                 const parent = node,
                     callee = node.parent;
                 node = callee.parent;

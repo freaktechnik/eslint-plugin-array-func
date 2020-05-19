@@ -14,7 +14,8 @@ ruleTester.run('prefer-flat-map', rule, {
         'array.flat()',
         'array.map((r) => r + 1)',
         'array.flat().map((r) => r + 1)',
-        'array.map((r) => r + 1).reverse().flat()'
+        'array.map((r) => r + 1).reverse().flat()',
+        'array.map((p) => p).flat(99)'
     ],
     invalid: [
         {
@@ -34,6 +35,15 @@ ruleTester.run('prefer-flat-map', rule, {
                 line: 1
             } ],
             output: 'foo(); array.flatMap((p) => p); test();'
+        },
+        {
+            code: 'array.map((r) => r).flat(1)',
+            errors: [ {
+                message: 'Use flatMap instead of .map().flat()',
+                column: 7,
+                line: 1
+            } ],
+            output: 'array.flatMap((r) => r)'
         }
     ]
 });
