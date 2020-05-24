@@ -27,7 +27,7 @@
     "eslint-plugin-eslint-plugin": "^2.2.1",
     "nyc": "^15.0.1",
     "snyk": "^1.323.0",
-    "typescript": "^3.9.2"
+    "typescript": "^3.9.3"
   },
   "peerDependencies": {
     "eslint": ">=3.0.0"
