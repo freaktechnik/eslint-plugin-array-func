@@ -136,7 +136,8 @@ array.filter(this.isGood, this);
 ```
 
 ### `prefer-array-from`
-Use `Array.from` instead of `[...iterable]` for performance benefits.
+Use `Array.from` instead of `[...iterable]`.
+See [`from-map`](#from-map) for additional benefits `Array.from` can provide over the spread syntax.
 
 This rule is auto fixable.
 
