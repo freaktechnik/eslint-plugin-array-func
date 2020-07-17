@@ -86,7 +86,7 @@ To use this rule, your `.eslintrc.json` should at least contain the following (m
 
 ```json
 {
-  "plugin": [
+  "plugins": [
     "array-func"
   ],
   "rules": {
@@ -176,7 +176,7 @@ To use this rule, your `.eslintrc.json` should at least contain the following (m
 
 ```json
 {
-  "plugin": [
+  "plugins": [
     "array-func"
   ],
   "rules": {
@@ -222,7 +222,7 @@ To use this rule, your `.eslintrc.json` should at least contain the following (m
 
 ```json
 {
-  "plugin": [
+  "plugins": [
     "array-func"
   ],
   "rules": {
@@ -270,7 +270,7 @@ To use this rule, your `.eslintrc.json` should at least contain the following (m
 
 ```json
 {
-  "plugin": [
+  "plugins": [
     "array-func"
   ],
   "rules": {
@@ -320,7 +320,7 @@ To use this rule, your `.eslintrc.json` should at least contain the following (m
 
 ```json
 {
-  "plugin": [
+  "plugins": [
     "array-func"
   ],
   "rules": {
@@ -367,7 +367,7 @@ To use this rule, your `.eslintrc.json` should at least contain the following (m
 
 ```json
 {
-  "plugin": [
+  "plugins": [
     "array-func"
   ],
   "rules": {
