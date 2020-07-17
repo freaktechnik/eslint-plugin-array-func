@@ -8,9 +8,7 @@
     "lint:ec": "eclint check $(git ls-files)",
     "lint": "npm run lint:js && npm run lint:ec",
     "test": "npm run lint && nyc ava",
-    "coverage": "nyc report && codecov",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "coverage": "nyc report && codecov"
   },
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
@@ -26,7 +24,6 @@
     "eslint-ava-rule-tester": "^4.0.0",
     "eslint-plugin-eslint-plugin": "^2.2.1",
     "nyc": "^15.0.1",
-    "snyk": "^1.323.0",
     "typescript": "^3.9.2"
   },
   "peerDependencies": {
@@ -59,6 +56,5 @@
       "test/**/*",
       "!test/helpers"
     ]
-  },
-  "snyk": true
+  }
 }
