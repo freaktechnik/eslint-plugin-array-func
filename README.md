@@ -171,16 +171,16 @@ This rule is auto fixable.
 #### Examples
 Code that triggers this rule:
 ```js
-const sum = array.reverse().reduce((p, c) => p + c, 0);
+const string = array.reverse().reduce((p, c) => p + c, '');
 
-const reverseSum = array.reverse().reduceRight((p, c) => p + c, 0);
+const reverseString = array.reverse().reduceRight((p, c) => p + c, '');
 ```
 
 Code that doesn't trigger this rule:
 ```js
-const sum = array.reduce((p, c) => p + c, 0);
+const reverseString = array.reduce((p, c) => p + c, '');
 
-const reverseSum = array.reduceRight((p, c) => p + c, 0);
+const string = array.reduceRight((p, c) => p + c, '');
 
 const reverseArray = array.reverse();
 
