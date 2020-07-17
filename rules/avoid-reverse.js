@@ -39,9 +39,13 @@ module.exports = {
                     },
                     message: `Prefer using ${reversed} over reversing the array and ${node.callee.property.name}`,
                     fix(fixer) {
+                        const [ propertyStart ] = parent.callee.property.range,
+                            [
+                                , propertyEnd
+                            ] = node.callee.property.range;
                         return fixer.replaceTextRange([
-                            parent.callee.property.start,
-                            node.callee.property.end
+                            propertyStart,
+                            propertyEnd
                         ], reversed);
                     }
                 });

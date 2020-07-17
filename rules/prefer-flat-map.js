@@ -17,26 +17,27 @@ module.exports = {
     create(context) {
         return {
             'CallExpression[callee.type="MemberExpression"]:matches([arguments.length=0],[arguments.0.type="Literal"][arguments.0.value=1]) > MemberExpression[property.name="flat"] > CallExpression[callee.type="MemberExpression"][callee.property.name="map"]'(node) {
-                const parent = node,
-                    callee = node.parent;
-                node = callee.parent;
+                const callee = node.parent.parent;
 
                 context.report({
                     node: callee.property,
                     loc: {
-                        start: parent.callee.property.loc.start,
+                        start: node.callee.property.loc.start,
                         end: callee.loc.end
                     },
                     message: "Use flatMap instead of .map().flat()",
                     fix(fixer) {
+                        const [
+                                , endOfMap
+                            ] = node.range,
+                            [
+                                , endOfFlat
+                            ] = callee.range;
                         return [
-                            fixer.replaceTextRange([
-                                parent.callee.property.start,
-                                parent.callee.property.end
-                            ], 'flatMap'),
+                            fixer.replaceTextRange(node.callee.property.range, 'flatMap'),
                             fixer.removeRange([
-                                callee.object.end,
-                                callee.parent.end
+                                endOfMap,
+                                endOfFlat
                             ])
                         ];
                     }

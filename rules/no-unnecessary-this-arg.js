@@ -42,10 +42,15 @@ const {
                 argument: argument.name
             },
             fix(fixer) {
-                const previousArgumentEnd = node.arguments[parameterPosition + FUNC_POS].end;
+                const [
+                        , previousArgumentEnd
+                    ] = node.arguments[parameterPosition + FUNC_POS].range,
+                    [
+                        , argumentEnd
+                    ] = argument.range;
                 return fixer.removeRange([
                     previousArgumentEnd,
-                    argument.end
+                    argumentEnd
                 ]);
             }
         });
