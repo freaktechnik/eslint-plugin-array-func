@@ -20,7 +20,7 @@
     "ava": "^3.11.0",
     "codecov": "^3.7.2",
     "eclint": "^2.8.1",
-    "eslint": "^7.5.0",
+    "eslint": "^7.6.0",
     "eslint-ava-rule-tester": "^4.0.0",
     "eslint-plugin-eslint-plugin": "^2.3.0",
     "nyc": "^15.1.0",
