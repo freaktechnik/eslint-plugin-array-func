@@ -18,7 +18,7 @@
     "@freaktechnik/eslint-config-test": "^7.2.0",
     "@typescript-eslint/parser": "^4.6.1",
     "ava": "^3.13.0",
-    "codecov": "^3.8.0",
+    "codecov": "^3.8.1",
     "eclint": "^2.8.1",
     "eslint": "^7.13.0",
     "eslint-ava-rule-tester": "^4.0.0",
