@@ -85,12 +85,12 @@ module.exports = {
     create(context) {
         return {
             "CallExpression:exit"(node) {
-                for(const func in arrayFunctions) {
-                    checkArrayFunction(func, arrayFunctions[func], node, context);
+                for(const functionName in arrayFunctions) {
+                    checkArrayFunction(functionName, arrayFunctions[functionName], node, context);
                 }
 
-                for(const func of methods) {
-                    checkMemberFunction(func, node, context);
+                for(const functionName of methods) {
+                    checkMemberFunction(functionName, node, context);
                 }
             }
         };
