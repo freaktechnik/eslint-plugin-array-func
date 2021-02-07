@@ -7,8 +7,7 @@
     "lint:js": "eslint index.js package.json rules/ test/ --ext js,json",
     "lint:ec": "eclint check $(git ls-files)",
     "lint": "npm run lint:js && npm run lint:ec",
-    "test": "npm run lint && nyc ava",
-    "coverage": "nyc report && codecov"
+    "test": "npm run lint && nyc ava"
   },
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
@@ -18,7 +17,6 @@
     "@freaktechnik/eslint-config-test": "^8.0.2",
     "@typescript-eslint/parser": "^4.14.2",
     "ava": "^3.15.0",
-    "codecov": "^3.8.1",
     "eclint": "^2.8.1",
     "eslint": "^7.19.0",
     "eslint-ava-rule-tester": "^4.0.0",
