@@ -283,8 +283,7 @@ Alternatively you can use a [configuration](#configurations) included with this 
 
 ### `prefer-flat-map`
 
-Use `.flatMap()` to flatten an array and map the values instead of using
-`.flat().map()`.
+Use `.flatMap()` to map and then flatten an array instead of using `.map().flat()`.
 
 This rule is auto fixable.
 
@@ -293,7 +292,7 @@ This rule is auto fixable.
 Code that triggers this rule:
 
 ```js
-const flattenedAndMapped = array.map((p) => p).flat();
+const mappedAndFlattened = array.map((p) => p).flat();
 
 const flatWithDefaultDepth = array.map((r) => r).flat(1);
 ```
@@ -307,7 +306,7 @@ const flattened = array.flat();
 
 const mapped = array.map((r) => r + 1);
 
-const mappedThenFlattened = array.flat().map((r) => r + 1);
+const flattenedThenMapped = array.flat().map((r) => r + 1);
 
 const flatMappedWithExtra = array.map((r) => r + 1).reverse().flat();
 
