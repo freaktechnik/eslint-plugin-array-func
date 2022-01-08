@@ -1,6 +1,6 @@
 import test from 'ava';
 import AvaRuleTester from 'eslint-ava-rule-tester';
-import rule from '../../rules/prefer-array-from';
+import rule from '../../rules/prefer-array-from.js';
 
 const ruleTester = new AvaRuleTester(test, {
     parserOptions: {

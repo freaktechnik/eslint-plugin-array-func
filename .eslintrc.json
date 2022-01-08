@@ -1,4 +1,10 @@
 {
+    "parserOptions": {
+        "sourceType": "script"
+    },
+    "rules": {
+        "unicorn/prefer-module": 0
+    },
     "plugins": [
         "eslint-plugin"
     ],

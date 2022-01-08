@@ -1,7 +1,7 @@
 import test from 'ava';
 import AvaRuleTester from 'eslint-ava-rule-tester';
-import rule from '../../rules/from-map';
-import testCases from "../helpers/from-map-test-cases";
+import rule from '../../rules/from-map.js';
+import testCases from "../helpers/from-map-test-cases.mjs";
 
 const ruleTester = new AvaRuleTester(test, {
     parserOptions: {

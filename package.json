@@ -12,15 +12,15 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "devDependencies": {
-    "@ava/babel": "^2.0.0",
-    "@freaktechnik/eslint-config-node": "^8.0.2",
-    "@freaktechnik/eslint-config-test": "^8.0.2",
-    "@typescript-eslint/parser": "^5.8.1",
-    "ava": "^3.15.0",
+    "@freaktechnik/eslint-config-node": "^9.0.3",
+    "@freaktechnik/eslint-config-test": "^9.0.1",
+    "@typescript-eslint/parser": "^5.9.0",
+    "ava": "^4.0.1",
     "eclint": "^2.8.1",
-    "eslint": "^7.32.0",
+    "eslint": "^8.6.0",
     "eslint-ava-rule-tester": "^4.0.0",
     "eslint-plugin-eslint-plugin": "^4.1.0",
+    "eslint-plugin-optimize-regex": "^1.2.1",
     "nyc": "^15.1.0",
     "typescript": "^4.5.4"
   },
@@ -48,7 +48,6 @@
     "url": "https://github.com/freaktechnik/eslint-plugin-array-func/issues"
   },
   "ava": {
-    "babel": true,
     "files": [
       "test/**/*",
       "!test/helpers"

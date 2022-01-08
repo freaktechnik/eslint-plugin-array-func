@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     valid: [
         'array.map((t) => t.id)',
         'Array.from(iterable).some((t) => t !== "a")',

@@ -1,6 +1,6 @@
 import test from 'ava';
 import AvaRuleTester from 'eslint-ava-rule-tester';
-import rule from '../../rules/no-unnecessary-this-arg';
+import rule from '../../rules/no-unnecessary-this-arg.js';
 
 const ruleTester = new AvaRuleTester(test, {
     parserOptions: {

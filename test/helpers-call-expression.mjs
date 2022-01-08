@@ -1,10 +1,10 @@
 import test from 'ava';
 import {
     isMethod, isOnObject
-} from '../lib/helpers/call-expression';
+} from '../lib/helpers/call-expression.js';
 import {
     MEMBER_EXPRESSION, IDENTIFIER
-} from '../lib/type';
+} from '../lib/type.js';
 
 test('is method', (t) => {
     const name = "test";

@@ -1,6 +1,6 @@
 import test from 'ava';
 import AvaRuleTester from 'eslint-ava-rule-tester';
-import rule from '../../rules/prefer-flat';
+import rule from '../../rules/prefer-flat.js';
 
 const ruleTester = new AvaRuleTester(test, {
     parserOptions: {

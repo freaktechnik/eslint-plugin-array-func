@@ -3,7 +3,7 @@ import {
     ARROW_FUNCTION_EXPRESSION,
     MEMBER_EXPRESSION,
     IDENTIFIER
-} from '../lib/type';
+} from '../lib/type.js';
 
 test('Arrow function expression', (t) => {
     t.is(ARROW_FUNCTION_EXPRESSION, "ArrowFunctionExpression");
