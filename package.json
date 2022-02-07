@@ -14,7 +14,7 @@
   "devDependencies": {
     "@freaktechnik/eslint-config-node": "^9.0.3",
     "@freaktechnik/eslint-config-test": "^9.0.1",
-    "@typescript-eslint/parser": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.2",
     "ava": "^4.0.1",
     "eclint": "^2.8.1",
     "eslint": "^8.8.0",
