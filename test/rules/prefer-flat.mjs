@@ -22,7 +22,7 @@ ruleTester.run('prefer-flat', rule, {
         {
             code: '[].concat(...array)',
             errors: [ {
-                message: 'Use flat to flatten an array',
+                messageId: 'preferFlat',
                 column: 1,
                 line: 1
             } ],
@@ -31,7 +31,7 @@ ruleTester.run('prefer-flat', rule, {
         {
             code: 'array.reduce((p, n) => p.concat(n), [])',
             errors: [ {
-                message: 'Use flat to flatten an array',
+                messageId: 'preferFlat',
                 column: 1,
                 line: 1
             } ],

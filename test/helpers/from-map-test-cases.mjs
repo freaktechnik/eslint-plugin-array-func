@@ -8,7 +8,7 @@ export default {
         {
             code: 'Array.from(iterable).map((t) => t.id)',
             errors: [ {
-                message: 'Use mapFn callback of Array.from instead of map()',
+                messageId: 'useMapCb',
                 column: 1,
                 line: 1
             } ],
@@ -17,7 +17,7 @@ export default {
         {
             code: 'Array.from(iterable, (t) => t.id, a).map((t) => t[0], b)',
             errors: [ {
-                message: 'Use mapFn callback of Array.from instead of map()',
+                messageId: 'useMapCb',
                 column: 1,
                 line: 1
             } ],
@@ -26,7 +26,7 @@ export default {
         {
             code: 'Array.from(iterable, function(t) { return t.id; }, a).map((t) => t[0])',
             errors: [ {
-                message: 'Use mapFn callback of Array.from instead of map()',
+                messageId: 'useMapCb',
                 column: 1,
                 line: 1
             } ],
@@ -35,7 +35,7 @@ export default {
         {
             code: 'Array.from(iterable, function(t) { return t.id; }, a).map(function(t) { return t[0]; }, b)',
             errors: [ {
-                message: 'Use mapFn callback of Array.from instead of map()',
+                messageId: 'useMapCb',
                 column: 1,
                 line: 1
             } ],
@@ -44,7 +44,7 @@ export default {
         {
             code: 'Array.from(iterable, function(u) { return u.id; }, a).map(function(t, i) { return t[0]; }, b)',
             errors: [ {
-                message: 'Use mapFn callback of Array.from instead of map()',
+                messageId: 'useMapCb',
                 column: 1,
                 line: 1
             } ],
@@ -53,7 +53,7 @@ export default {
         {
             code: 'Array.from(iterable, function(u, i) { return u.id; }, a).map(function(t) { return t[0]; }, b)',
             errors: [ {
-                message: 'Use mapFn callback of Array.from instead of map()',
+                messageId: 'useMapCb',
                 column: 1,
                 line: 1
             } ],

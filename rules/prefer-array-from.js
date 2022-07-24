@@ -17,7 +17,10 @@ module.exports = {
         },
         schema: [],
         fixable: "code",
-        type: "problem"
+        type: "problem",
+        messages: {
+            preferArrayFrom: "Use Array.from to convert from iterable to array"
+        }
     },
     create(context) {
         return {
@@ -25,7 +28,7 @@ module.exports = {
                 node = node.parent;
                 context.report({
                     node,
-                    message: "Use Array.from to convert from iterable to array",
+                    messageId: 'preferArrayFrom',
                     fix(fixer) {
                         const sourceCode = context.getSourceCode();
                         return fixer.replaceText(node, `Array.from(${sourceCode.getText(firstElement(node.elements).argument)})`);

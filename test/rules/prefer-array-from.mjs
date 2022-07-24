@@ -8,8 +8,6 @@ const ruleTester = new AvaRuleTester(test, {
     }
 });
 
-const message = "Use Array.from to convert from iterable to array";
-
 ruleTester.run('perfer-array-from', rule, {
     valid: [
         'Array.from(new Set())',
@@ -22,7 +20,7 @@ ruleTester.run('perfer-array-from', rule, {
         {
             code: '[...iterable]',
             errors: [ {
-                message,
+                messageId: "preferArrayFrom",
                 column: 1,
                 line: 1
             } ],
@@ -31,7 +29,7 @@ ruleTester.run('perfer-array-from', rule, {
         {
             code: '[...[1, 2]]',
             errors: [ {
-                message,
+                messageId: "preferArrayFrom",
                 column: 1,
                 line: 1
             } ],
@@ -40,7 +38,7 @@ ruleTester.run('perfer-array-from', rule, {
         {
             code: '[..."test"]',
             errors: [ {
-                message,
+                messageId: "preferArrayFrom",
                 column: 1,
                 line: 1
             } ],

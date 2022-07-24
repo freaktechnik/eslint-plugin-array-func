@@ -19,7 +19,10 @@ module.exports = {
         },
         schema: [],
         fixable: "code",
-        type: "suggestion"
+        type: "suggestion",
+        messages: {
+            avoidReverse: "Prefer using {{ reversed }} over reversing the array and {{ methodName }}"
+        }
     },
     create(context) {
         return {
@@ -37,7 +40,11 @@ module.exports = {
                         start: parent.callee.property.loc.start,
                         end: node.callee.property.loc.end
                     },
-                    message: `Prefer using ${reversed} over reversing the array and ${node.callee.property.name}`,
+                    messageId: "avoidReverse",
+                    data: {
+                        reversed,
+                        methodName: node.callee.property.name
+                    },
                     fix(fixer) {
                         const [ propertyStart ] = parent.callee.property.range,
                             [

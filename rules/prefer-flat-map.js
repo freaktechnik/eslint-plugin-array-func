@@ -12,7 +12,10 @@ module.exports = {
         },
         fixable: "code",
         schema: [],
-        type: "suggestion"
+        type: "suggestion",
+        messages: {
+            preferFlatMap: "Use flatMap instead of .map().flat()"
+        }
     },
     create(context) {
         return {
@@ -25,7 +28,7 @@ module.exports = {
                         start: node.callee.property.loc.start,
                         end: callee.loc.end
                     },
-                    message: "Use flatMap instead of .map().flat()",
+                    messageId: "preferFlatMap",
                     fix(fixer) {
                         const [
                                 , endOfMap

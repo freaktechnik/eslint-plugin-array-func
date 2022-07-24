@@ -21,7 +21,7 @@ ruleTester.run('no-unnecessary-this-arg', rule, {
         {
             code: 'Array.from(iterable, (t) => t.id, b)',
             errors: [ {
-                message: "Unnecessary this argument 'b' with arrow function as callback to Array.from",
+                messageId: "unnecessaryThisArgStatic",
                 column: 35,
                 line: 1
             } ],
@@ -30,7 +30,7 @@ ruleTester.run('no-unnecessary-this-arg', rule, {
         {
             code: 'array.map((t) => t.id, a)',
             errors: [ {
-                message: "Unnecessary this argument 'a' with an arrow function as callback to map",
+                messageId: "unnecessaryThisArgMethod",
                 column: 24,
                 line: 1
             } ],
@@ -39,7 +39,7 @@ ruleTester.run('no-unnecessary-this-arg', rule, {
         {
             code: 'array.some((t) => t.id, b)',
             errors: [ {
-                message: "Unnecessary this argument 'b' with an arrow function as callback to some",
+                messageId: "unnecessaryThisArgMethod",
                 column: 25,
                 line: 1
             } ],
@@ -48,7 +48,7 @@ ruleTester.run('no-unnecessary-this-arg', rule, {
         {
             code: 'array.filter((t) => t.id, 2)',
             errors: [ {
-                message: "Unnecessary this argument '2' with an arrow function as callback to filter",
+                messageId: "unnecessaryThisArgMethod",
                 column: 27,
                 line: 1
             } ],
@@ -57,7 +57,7 @@ ruleTester.run('no-unnecessary-this-arg', rule, {
         {
             code: 'array.filter((t) => t.id, null)',
             errors: [ {
-                message: "Unnecessary this argument 'null' with an arrow function as callback to filter",
+                messageId: "unnecessaryThisArgMethod",
                 column: 27,
                 line: 1
             } ],

@@ -14,7 +14,10 @@ module.exports = {
         },
         fixable: "code",
         type: "suggestion",
-        schema: []
+        schema: [],
+        messages: {
+            useMapCb: "Use mapFn callback of Array.from instead of map()"
+        }
     },
     create(context) {
         return {
@@ -29,7 +32,7 @@ module.exports = {
                         start: parent.callee.loc.start,
                         end: callee.loc.end
                     },
-                    message: "Use mapFn callback of Array.from instead of map()",
+                    messageId: "useMapCb",
                     fix(fixer) {
                         const HAS_CBK = 2,
                             PARAM_SEPARATOR = ", ",

@@ -36,7 +36,7 @@ const {
         context.report({
             node: argument,
             loc: argument.loc,
-            message: "Unnecessary this argument '{{ argument }}' with arrow function as callback to Array.{{ name }}",
+            messageId: "unnecessaryThisArgStatic",
             data: {
                 name: node.callee.property.name,
                 argument: argument.name
@@ -64,7 +64,7 @@ const {
         context.report({
             node: argument,
             loc: argument.loc,
-            message: "Unnecessary this argument '{{ argument }}' with an arrow function as callback to {{ name }}",
+            messageId: "unnecessaryThisArgMethod",
             data: {
                 name: node.callee.property.name,
                 argument: argument.name || argument.value || argument.raw
@@ -80,7 +80,11 @@ module.exports = {
         },
         schema: [],
         fixable: "code",
-        type: "suggestion"
+        type: "suggestion",
+        messages: {
+            unnecessaryThisArgMethod: "Unnecessary this argument '{{ argument }}' with an arrow function as callback to {{ name }}",
+            unnecessaryThisArgStatic: "Unnecessary this argument '{{ argument }}' with arrow function as callback to Array.{{ name }}"
+        }
     },
     create(context) {
         return {

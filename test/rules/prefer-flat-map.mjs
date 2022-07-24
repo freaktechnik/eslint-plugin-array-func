@@ -21,7 +21,7 @@ ruleTester.run('prefer-flat-map', rule, {
         {
             code: 'array.map((p) => p).flat()',
             errors: [ {
-                message: 'Use flatMap instead of .map().flat()',
+                messageId: 'preferFlatMap',
                 column: 7,
                 line: 1
             } ],
@@ -30,7 +30,7 @@ ruleTester.run('prefer-flat-map', rule, {
         {
             code: 'foo(); array.map((p) => p).flat(); test();',
             errors: [ {
-                message: 'Use flatMap instead of .map().flat()',
+                messageId: 'preferFlatMap',
                 column: 14,
                 line: 1
             } ],
@@ -39,7 +39,7 @@ ruleTester.run('prefer-flat-map', rule, {
         {
             code: 'array.map((r) => r).flat(1)',
             errors: [ {
-                message: 'Use flatMap instead of .map().flat()',
+                messageId: 'preferFlatMap',
                 column: 7,
                 line: 1
             } ],

@@ -21,18 +21,26 @@ ruleTester.run('avoid-reverse', rule, {
         {
             code: 'array.reverse().reduce((p, c) => p + c, 0)',
             errors: [ {
-                message: 'Prefer using reduceRight over reversing the array and reduce',
+                messageId: 'avoidReverse',
                 column: 7,
-                line: 1
+                line: 1,
+                data: {
+                    reversed: 'reduceRight',
+                    methodName: 'reduce'
+                }
             } ],
             output: 'array.reduceRight((p, c) => p + c, 0)'
         },
         {
             code: 'array.reverse().reduceRight((p, c) => p + c, 0)',
             errors: [ {
-                message: 'Prefer using reduce over reversing the array and reduceRight',
+                messageId: 'avoidReverse',
                 column: 7,
-                line: 1
+                line: 1,
+                data: {
+                    reversed: 'reduce',
+                    methodName: 'reduceRight'
+                }
             } ],
             output: 'array.reduce((p, c) => p + c, 0)'
         }

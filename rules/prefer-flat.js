@@ -15,12 +15,15 @@ const
 module.exports = {
     meta: {
         docs: {
-            description: "Prefer using .flat() over concating to flatten an array.",
+            description: "Prefer using .flat() over concatenating to flatten an array.",
             recommended: true
         },
         schema: [],
         fixable: "code",
-        type: "suggestion"
+        type: "suggestion",
+        messages: {
+            preferFlat: "Use flat to flatten an array"
+        }
     },
     create(context) {
         return {
@@ -28,7 +31,7 @@ module.exports = {
                 node = node.parent;
                 context.report({
                     node,
-                    message: "Use flat to flatten an array",
+                    messageId: "preferFlat",
                     fix(fixer) {
                         const sourceCode = context.getSourceCode();
                         //TODO could be an iterable, so Array.from may be needed.
@@ -47,7 +50,7 @@ module.exports = {
                 ) {
                     context.report({
                         node: node.parent.parent,
-                        message: "Use flat to flatten an array",
+                        messageId: "preferFlat",
                         fix(fixer) {
                             const sourceCode = context.getSourceCode();
                             return fixer.replaceText(node.parent.parent, `${sourceCode.getText(node.parent.parent.callee.object)}.flat()`);
