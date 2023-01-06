@@ -4,7 +4,11 @@
  */
 "use strict";
 
-const { ARROW_FUNCTION_EXPRESSION } = require("../lib/type");
+const { ARROW_FUNCTION_EXPRESSION } = require("../lib/type"),
+    ALL_PARAMS = [
+        { name: 'item' },
+        { name: 'index' }
+    ];
 
 module.exports = {
     meta: {
@@ -21,10 +25,21 @@ module.exports = {
     },
     create(context) {
         return {
-            'CallExpression[callee.type="MemberExpression"] > MemberExpression[property.name="map"] > CallExpression[callee.type="MemberExpression"][callee.property.name="from"][callee.object.type="Identifier"][callee.object.name="Array"]'(node) {
+            'CallExpression[callee.type="MemberExpression"] > MemberExpression[property.name="map"][property] > CallExpression[callee.type="MemberExpression"][callee.property.name="from"][callee.object.type="Identifier"][callee.object.name="Array"]'(node) {
                 const parent = node,
-                    callee = node.parent;
+                    callee = node.parent,
+                    [
+                        mapCallback,
+                        mapThisArgument
+                    ] = callee.parent.arguments;
                 node = callee.parent;
+
+                if(mapCallback.type === "Identifier" ||
+                    mapCallback.params.length > ALL_PARAMS.length ||
+                    mapCallback.params.some((parameter) => parameter.type === "RestElement")
+                ) {
+                    return;
+                }
 
                 context.report({
                     node: callee.property,
@@ -43,16 +58,13 @@ module.exports = {
                         if(parent.arguments.length >= HAS_CBK) {
                             const OMIT_ITEM = 1,
                                 [
-                                    mapCallback,
-                                    mapThisArgument
-                                ] = node.arguments,
-                                [
                                     _, // eslint-disable-line no-unused-vars
                                     callback,
                                     thisArgument
                                 ] = parent.arguments,
-                                // Get the params names from the callback that has the most params (since the signature is identical).
-                                parameters = callback.params.length > mapCallback.params.length ? callback.params : mapCallback.params,
+                                parameters = callback.type !== "Identifier"
+                                    ? callback.params.length > mapCallback.params.length ? callback.params : mapCallback.params
+                                    : ALL_PARAMS,
                                 parameterString = parameters.map((p) => p.name).join(PARAM_SEPARATOR),
                                 getCallback = (cbk, targ, ps) => {
                                     const source = `(${sourceCode.getText(cbk)})`;
