@@ -15,7 +15,7 @@
     "@freaktechnik/eslint-config-node": "^9.0.3",
     "@freaktechnik/eslint-config-test": "^9.0.1",
     "@typescript-eslint/parser": "^5.47.1",
-    "ava": "^5.1.0",
+    "ava": "^5.1.1",
     "eclint": "^2.8.1",
     "eslint": "^8.32.0",
     "eslint-ava-rule-tester": "^4.0.0",
