@@ -90,7 +90,7 @@ To use this rule, your `.eslintrc.json` should at least contain the following (m
     "array-func"
   ],
   "rules": {
-    "array-func/array-from": "error"
+    "array-func/from-map": "error"
   }
 }
 ```
