@@ -1,6 +1,6 @@
 /**
- * @author Martin Giger
  * @license MIT
+ * @author Martin Giger
  */
 "use strict";
 
@@ -62,9 +62,9 @@ module.exports = {
                                     callback,
                                     thisArgument
                                 ] = parent.arguments,
-                                parameters = callback.type !== "Identifier"
-                                    ? callback.params.length > mapCallback.params.length ? callback.params : mapCallback.params
-                                    : ALL_PARAMS,
+                                parameters = callback.type === "Identifier"
+                                    ? ALL_PARAMS
+                                    : callback.params.length > mapCallback.params.length ? callback.params : mapCallback.params,
                                 parameterString = parameters.map((p) => p.name).join(PARAM_SEPARATOR),
                                 getCallback = (cbk, targ, ps) => {
                                     const source = `(${sourceCode.getText(cbk)})`;

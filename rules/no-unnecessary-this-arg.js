@@ -1,6 +1,6 @@
 /**
- * @author Martin Giger
  * @license MIT
+ * @author Martin Giger
  */
 "use strict";
 
