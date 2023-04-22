@@ -52,5 +52,8 @@
       "test/**/*",
       "!test/helpers"
     ]
+  },
+  "publishConfig": {
+    "provenance": true
   }
 }
