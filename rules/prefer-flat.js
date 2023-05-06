@@ -33,7 +33,7 @@ module.exports = {
                     node,
                     messageId: "preferFlat",
                     fix(fixer) {
-                        const sourceCode = context.getSourceCode();
+                        const { sourceCode } = context;
                         //TODO could be an iterable, so Array.from may be needed.
                         return fixer.replaceText(node, `${sourceCode.getText(firstElement(node.arguments).argument)}.flat()`);
                     }
@@ -52,7 +52,7 @@ module.exports = {
                         node: node.parent.parent,
                         messageId: "preferFlat",
                         fix(fixer) {
-                            const sourceCode = context.getSourceCode();
+                            const { sourceCode } = context;
                             return fixer.replaceText(node.parent.parent, `${sourceCode.getText(node.parent.parent.callee.object)}.flat()`);
                         }
                     });

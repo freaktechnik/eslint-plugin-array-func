@@ -30,7 +30,7 @@ module.exports = {
                     node,
                     messageId: 'preferArrayFrom',
                     fix(fixer) {
-                        const sourceCode = context.getSourceCode();
+                        const { sourceCode } = context;
                         return fixer.replaceText(node, `Array.from(${sourceCode.getText(firstElement(node.elements).argument)})`);
                     }
                 });

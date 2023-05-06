@@ -52,7 +52,7 @@ module.exports = {
                         const HAS_CBK = 2,
                             PARAM_SEPARATOR = ", ",
                             FUNCTION_END = ")",
-                            sourceCode = context.getSourceCode();
+                            { sourceCode } = context;
 
                         // Merge the from and map callbacks
                         if(parent.arguments.length >= HAS_CBK) {
