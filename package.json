@@ -5,18 +5,16 @@
   "main": "index.js",
   "scripts": {
     "lint:js": "eslint index.js package.json rules/ test/ --ext js,json",
-    "lint:ec": "eclint check $(git ls-files)",
-    "lint": "npm run lint:js && npm run lint:ec",
+    "lint": "npm run lint:js",
     "test": "npm run lint && nyc ava"
   },
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^9.1.1",
-    "@freaktechnik/eslint-config-test": "^9.1.1",
+    "@freaktechnik/eslint-config-node": "^9.2.1",
+    "@freaktechnik/eslint-config-test": "^9.2.1",
     "@typescript-eslint/parser": "^5.59.1",
     "ava": "^5.2.0",
-    "eclint": "^2.8.1",
     "eslint": "^8.40.0",
     "eslint-ava-rule-tester": "^4.0.0",
     "eslint-plugin-eslint-plugin": "^5.0.8",
