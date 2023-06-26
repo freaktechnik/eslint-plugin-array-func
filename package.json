@@ -13,7 +13,7 @@
   "devDependencies": {
     "@freaktechnik/eslint-config-node": "^9.2.1",
     "@freaktechnik/eslint-config-test": "^9.2.1",
-    "@typescript-eslint/parser": "^5.59.11",
+    "@typescript-eslint/parser": "^5.60.0",
     "ava": "^5.3.1",
     "eslint": "^8.43.0",
     "eslint-ava-rule-tester": "^4.0.0",
