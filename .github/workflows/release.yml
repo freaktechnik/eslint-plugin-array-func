@@ -19,7 +19,7 @@ jobs:
   npm-publish:
     needs: test
     runs-on: ubuntu-latest
-    name: Publish ${{ matrix.package }}
+    name: Publish
     permissions:
       id-token: write
     environment:
