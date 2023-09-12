@@ -10,6 +10,10 @@ const { ARROW_FUNCTION_EXPRESSION } = require("../lib/type"),
         { name: 'index' }
     ];
 
+function isFunction(node) {
+    return node.type === "ArrowFunctionExpression" || node.type === "FunctionExpression";
+}
+
 module.exports = {
     meta: {
         docs: {
@@ -35,8 +39,10 @@ module.exports = {
                 node = callee.parent;
 
                 if(mapCallback.type === "Identifier" ||
-                    mapCallback.params.length > ALL_PARAMS.length ||
-                    mapCallback.params.some((parameter) => parameter.type === "RestElement")
+                    (isFunction(mapCallback) && (
+                        mapCallback.params.length > ALL_PARAMS.length ||
+                        mapCallback.params.some((parameter) => parameter.type === "RestElement")
+                    ))
                 ) {
                     return;
                 }
