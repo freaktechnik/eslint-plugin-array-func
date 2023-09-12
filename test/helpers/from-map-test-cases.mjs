@@ -71,6 +71,15 @@ export default {
                 line: 1
             } ],
             output: 'Array.from(iterable, (item, index) => ((u, i) => u.name)((mapper).call(this, item, index), index))'
+        },
+        {
+            code: 'Array.from(iterable).map(getValue ? (u, i) => getValue(i) : (u, i) => i)',
+            errors: [ {
+                messageId: 'useMapCb',
+                column: 1,
+                line: 1
+            } ],
+            output: 'Array.from(iterable, getValue ? (u, i) => getValue(i) : (u, i) => i)'
         }
     ]
 };
