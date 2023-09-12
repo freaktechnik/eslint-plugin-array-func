@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/freaktechnik/eslint-plugin-array-func.git"
+    "url": "git+https://github.com/freaktechnik/eslint-plugin-array-func.git"
   },
   "bugs": {
     "url": "https://github.com/freaktechnik/eslint-plugin-array-func/issues"
