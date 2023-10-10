@@ -2,15 +2,13 @@
  * @license MIT
  * @author Martin Giger
  */
-"use strict";
+import {
+    isMethod,
+    isOnObject
+} from "../lib/helpers/call-expression";
+import { ARROW_FUNCTION_EXPRESSION } from "../lib/type";
 
-const {
-        isMethod,
-        isOnObject
-    } = require("../lib/helpers/call-expression"),
-    { ARROW_FUNCTION_EXPRESSION } = require("../lib/type"),
-
-    arrayFunctions = {
+const arrayFunctions = {
         from: 3
     },
     // All have param location 2
@@ -72,7 +70,7 @@ const {
         });
     };
 
-module.exports = {
+export default {
     meta: {
         docs: {
             description: "Avoid the this parameter when providing arrow function as callback in array functions.",

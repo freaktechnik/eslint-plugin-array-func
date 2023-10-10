@@ -2,23 +2,25 @@
  * @license MIT
  * @author Martin Giger
  */
-"use strict";
+import fromMap from "./rules/from-map";
+import noUnnecessaryThisArg from "./rules/no-unnecessary-this-arg";
+import preferArrayFrom from "./rules/prefer-array-from";
+import avoidReverse from "./rules/avoid-reverse";
+import preferFlatMap from "./rules/prefer-flat-map";
+import preferFlat from "./rules/prefer-flat";
 
-module.exports = {
+const index = {
     rules: {
-        "from-map": require("./rules/from-map"),
-        "no-unnecessary-this-arg": require("./rules/no-unnecessary-this-arg"),
-        "prefer-array-from": require("./rules/prefer-array-from"),
-        "avoid-reverse": require("./rules/avoid-reverse"),
-        "prefer-flat-map": require("./rules/prefer-flat-map"),
-        "prefer-flat": require("./rules/prefer-flat")
+        "from-map": fromMap,
+        "no-unnecessary-this-arg": noUnnecessaryThisArg,
+        "prefer-array-from": preferArrayFrom,
+        "avoid-reverse": avoidReverse,
+        "prefer-flat-map": preferFlatMap,
+        "prefer-flat": preferFlat,
     },
     configs: {
         recommended: {
-            parserOptions: {
-                ecmaVersion: 2015
-            },
-            plugins: [ 'array-func' ],
+            plugins: { "array-func": index },
             rules: {
                 "array-func/from-map": "error",
                 "array-func/no-unnecessary-this-arg": "error",
@@ -27,15 +29,17 @@ module.exports = {
             }
         },
         all: {
-            parserOptions: {
-                ecmaVersion: 2018
-            },
-            plugins: [ 'array-func' ],
+            plugins: { "array-func": index },
             rules: {
+                "array-func/from-map": "error",
+                "array-func/no-unnecessary-this-arg": "error",
+                "array-func/prefer-array-from": "error",
+                "array-func/avoid-reverse": "error",
                 "array-func/prefer-flat-map": "error",
                 "array-func/prefer-flat": "error"
-            },
-            extends: [ 'plugin:array-func/recommended' ]
+            }
         }
     }
 };
+
+export default index;

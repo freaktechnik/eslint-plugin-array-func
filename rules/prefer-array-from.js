@@ -2,14 +2,13 @@
  * @license MIT
  * @author Martin Giger
  */
-"use strict";
 
 const firstElement = (array) => {
     const [ element ] = array;
     return element;
 };
 
-module.exports = {
+export default {
     meta: {
         docs: {
             description: "Prefer using Array.from over spreading an iterable in an array literal. Using Array.from also preserves the original type of TypedArrays while mapping.",

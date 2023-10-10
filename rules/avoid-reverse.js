@@ -2,16 +2,14 @@
  * @license MIT
  * @author Martin Giger
  */
-"use strict";
+import { isMethod } from "../lib/helpers/call-expression";
 
-const { isMethod } = require("../lib/helpers/call-expression"),
+const REPLACEMENTS = {
+    reduce: "reduceRight",
+    reduceRight: "reduce"
+};
 
-    REPLACEMENTS = {
-        reduce: "reduceRight",
-        reduceRight: "reduce"
-    };
-
-module.exports = {
+export default {
     meta: {
         docs: {
             description: "Prefer methods operating from the right over reversing the array",

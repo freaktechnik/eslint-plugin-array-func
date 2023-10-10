@@ -2,9 +2,6 @@
  * @license MIT
  * @author Martin Giger
  */
-"use strict";
-
-//TODO no works.
 
 const
     firstElement = ([ first ]) => first,
@@ -12,7 +9,7 @@ const
         , second
     ]) => second;
 
-module.exports = {
+export default {
     meta: {
         docs: {
             description: "Prefer using .flat() over concatenating to flatten an array.",

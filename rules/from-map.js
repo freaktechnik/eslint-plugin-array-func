@@ -2,19 +2,18 @@
  * @license MIT
  * @author Martin Giger
  */
-"use strict";
+import { ARROW_FUNCTION_EXPRESSION } from "../lib/type";
 
-const { ARROW_FUNCTION_EXPRESSION } = require("../lib/type"),
-    ALL_PARAMS = [
-        { name: 'item' },
-        { name: 'index' }
-    ];
+const ALL_PARAMS = [
+    { name: 'item' },
+    { name: 'index' }
+];
 
 function isFunction(node) {
     return node.type === "ArrowFunctionExpression" || node.type === "FunctionExpression";
 }
 
-module.exports = {
+export default {
     meta: {
         docs: {
             description: "Prefer using the mapFn callback of Array.from over an immediate .map() call.",

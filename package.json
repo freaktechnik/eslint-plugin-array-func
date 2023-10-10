@@ -23,7 +23,7 @@
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "eslint": ">=8.40.0"
+    "eslint": ">=8.51.0"
   },
   "keywords": [
     "eslint",
@@ -53,5 +53,6 @@
   },
   "publishConfig": {
     "provenance": true
-  }
+  },
+  "type": "module"
 }

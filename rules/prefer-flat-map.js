@@ -2,9 +2,8 @@
  * @license MIT
  * @author Martin Giger
  */
-"use strict";
 
-module.exports = {
+export default {
     meta: {
         docs: {
             description: "Prefer using the flatMap over an immediate .flat() call after a .map().",
