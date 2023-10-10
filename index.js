@@ -2,12 +2,12 @@
  * @license MIT
  * @author Martin Giger
  */
-import fromMap from "./rules/from-map";
-import noUnnecessaryThisArgument from "./rules/no-unnecessary-this-arg";
-import preferArrayFrom from "./rules/prefer-array-from";
-import avoidReverse from "./rules/avoid-reverse";
-import preferFlatMap from "./rules/prefer-flat-map";
-import preferFlat from "./rules/prefer-flat";
+import fromMap from "./rules/from-map.js";
+import noUnnecessaryThisArgument from "./rules/no-unnecessary-this-arg.js";
+import preferArrayFrom from "./rules/prefer-array-from.js";
+import avoidReverse from "./rules/avoid-reverse.js";
+import preferFlatMap from "./rules/prefer-flat-map.js";
+import preferFlat from "./rules/prefer-flat.js";
 
 const index = {
     rules: {

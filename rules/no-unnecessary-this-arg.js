@@ -5,8 +5,8 @@
 import {
     isMethod,
     isOnObject
-} from "../lib/helpers/call-expression";
-import { ARROW_FUNCTION_EXPRESSION } from "../lib/type";
+} from "../lib/helpers/call-expression.js";
+import { ARROW_FUNCTION_EXPRESSION } from "../lib/type.js";
 
 const arrayFunctions = {
         from: 3

@@ -2,7 +2,7 @@
  * @license MIT
  * @author Martin Giger
  */
-import { isMethod } from "../lib/helpers/call-expression";
+import { isMethod } from "../lib/helpers/call-expression.js";
 
 const REPLACEMENTS = {
     reduce: "reduceRight",

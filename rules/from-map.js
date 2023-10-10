@@ -2,7 +2,7 @@
  * @license MIT
  * @author Martin Giger
  */
-import { ARROW_FUNCTION_EXPRESSION } from "../lib/type";
+import { ARROW_FUNCTION_EXPRESSION } from "../lib/type.js";
 
 const ALL_PARAMS = [
     { name: 'item' },
