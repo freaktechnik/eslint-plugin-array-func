@@ -1,6 +1,6 @@
 {
     "parserOptions": {
-        "sourceType": "script"
+        "sourceType": "module"
     },
     "rules": {
         "unicorn/prefer-module": 0
