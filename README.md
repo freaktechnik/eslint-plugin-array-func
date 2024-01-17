@@ -379,9 +379,7 @@ Alternatively you can use a [configuration](#configurations) included with this 
 
 ## Configurations
 
-### `array-func/recommended` Configuration
-
-The recommended configuration will set your parser ECMA Version to 2015, since that's when the Array functions and methods were added.
+### `recommended` Configuration
 
 Rule | Error level | Fixable
 ---- | ----------- | -------
@@ -392,21 +390,21 @@ Rule | Error level | Fixable
 
 #### Using the Configuration
 
-To enable this configuration use the `extends` property in your `.eslintrc.json` config file (may look different for other config file styles):
+To enable this configuration, import the plugin and add the config to your eslint config array:
 
-```json
-{
-  "extends": [
-    "plugin:array-func/recommended"
-  ]
-}
+```js
+import arrayFunc from "eslint-plugin-array-func";
+
+export default [
+  arrayFunc.configs.recommended,
+];
 ```
 
-### `array-func/all` Configuration
+### `all` Configuration
 
 The recommended configuration does not include all rules, since some Array methods
 were added after ES2015. The all configuration enables all rules the plugin
-contains and sets the ECMA version appropriately.
+containsy.
 
 Rule | Error level | Fixable
 ---- | ----------- | -------
@@ -419,14 +417,14 @@ Rule | Error level | Fixable
 
 #### Using the Configuration
 
-To enable this configuration use the `extends` property in your `.eslintrc.json` config file (may look different for other config file styles):
+To enable this configuration, import the plugin and add the config to your eslint config array:
 
-```json
-{
-  "extends": [
-    "plugin:array-func/all"
-  ]
-}
+```js
+import arrayFunc from "eslint-plugin-array-func";
+
+export default [
+  arrayFunc.configs.all,
+];
 ```
 
 ## License
