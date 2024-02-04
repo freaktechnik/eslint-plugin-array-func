@@ -10,6 +10,10 @@ import preferFlatMap from "./rules/prefer-flat-map.js";
 import preferFlat from "./rules/prefer-flat.js";
 
 const index = {
+    meta: {
+        name: "eslint-plugin-array-func",
+        version: "5.0.1"
+    },
     rules: {
         "from-map": fromMap,
         "no-unnecessary-this-arg": noUnnecessaryThisArgument,
