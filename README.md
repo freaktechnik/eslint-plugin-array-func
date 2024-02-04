@@ -82,17 +82,21 @@ const mappedArray = arr.map((t) => t.id);
 
 #### Using the rule
 
-To use this rule, your `.eslintrc.json` should at least contain the following (may look different for other config file styles):
+To use this rule, your `eslint.config.js` should at least contain the following:
 
-```json
-{
-  "plugins": [
-    "array-func"
-  ],
-  "rules": {
-    "array-func/from-map": "error"
+```js
+import arrayFunc from "eslint-plugin-array-func";
+
+export default [
+  {
+    plugins: {
+      "array-func": arrayFunc
+    },
+    rules: {
+      "array-func/from-map": "error"
+    }
   }
-}
+];
 ```
 
 Alternatively you can use a [configuration](#configurations) included with this plugin.
@@ -172,17 +176,21 @@ array.filter(this.isGood, this);
 
 #### Using the rule
 
-To use this rule, your `.eslintrc.json` should at least contain the following (may look different for other config file styles):
+To use this rule, your `eslint.config.js` should at least contain the following:
 
-```json
-{
-  "plugins": [
-    "array-func"
-  ],
-  "rules": {
-    "array-func/no-unnecessary-this-arg": "error"
+```js
+import arrayFunc from "eslint-plugin-array-func";
+
+export default [
+  {
+    plugins: {
+      "array-func": arrayFunc
+    },
+    rules: {
+      "array-func/no-unnecessary-this-arg": "error"
+    }
   }
-}
+];
 ```
 
 Alternatively you can use a [configuration](#configurations) included with this plugin.
@@ -218,17 +226,21 @@ const characterArray = Array.from("string");
 
 #### Using the rule
 
-To use this rule, your `.eslintrc.json` should at least contain the following (may look different for other config file styles):
+To use this rule, your `eslint.config.js` should at least contain the following:
 
-```json
-{
-  "plugins": [
-    "array-func"
-  ],
-  "rules": {
-    "array-func/prefer-array-from": "error"
+```js
+import arrayFunc from "eslint-plugin-array-func";
+
+export default [
+  {
+    plugins: {
+      "array-func": arrayFunc
+    },
+    rules: {
+      "array-func/prefer-array-from": "error"
+    }
   }
-}
+];
 ```
 
 Alternatively you can use a [configuration](#configurations) included with this plugin.
@@ -266,17 +278,21 @@ const reverseMap = array.reverse().map((r) => r + 1);
 
 #### Using the rule
 
-To use this rule, your `.eslintrc.json` should at least contain the following (may look different for other config file styles):
+To use this rule, your `eslint.config.js` should at least contain the following:
 
-```json
-{
-  "plugins": [
-    "array-func"
-  ],
-  "rules": {
-    "array-func/avoid-reverse": "error"
+```js
+import arrayFunc from "eslint-plugin-array-func";
+
+export default [
+  {
+    plugins: {
+      "array-func": arrayFunc
+    },
+    rules: {
+      "array-func/avoid-reverse": "error"
+    }
   }
-}
+];
 ```
 
 Alternatively you can use a [configuration](#configurations) included with this plugin.
@@ -315,17 +331,21 @@ const flatWithDepth = array.map((p) => p).flat(99);
 
 #### Using the rule
 
-To use this rule, your `.eslintrc.json` should at least contain the following (may look different for other config file styles):
+To use this rule, your `eslint.config.js` should at least contain the following:
 
-```json
-{
-  "plugins": [
-    "array-func"
-  ],
-  "rules": {
-    "array-func/prefer-flat-map": "error"
+```js
+import arrayFunc from "eslint-plugin-array-func";
+
+export default [
+  {
+    plugins: {
+      "array-func": arrayFunc
+    },
+    rules: {
+      "array-func/prefer-flat-map": "error"
+    }
   }
-}
+];
 ```
 
 Alternatively you can use a [configuration](#configurations) included with this plugin.
@@ -362,17 +382,21 @@ const otherReduce = array.reduce((p, n) => n + p, 0);
 
 #### Using the rule
 
-To use this rule, your `.eslintrc.json` should at least contain the following (may look different for other config file styles):
+To use this rule, your `eslint.config.js` should at least contain the following:
 
-```json
-{
-  "plugins": [
-    "array-func"
-  ],
-  "rules": {
-    "array-func/prefer-flat": "error"
+```js
+import arrayFunc from "eslint-plugin-array-func";
+
+export default [
+  {
+    plugins: {
+      "array-func": arrayFunc
+    },
+    rules: {
+      "array-func/prefer-flat": "error"
+    }
   }
-}
+];
 ```
 
 Alternatively you can use a [configuration](#configurations) included with this plugin.
