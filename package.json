@@ -6,7 +6,8 @@
   "scripts": {
     "lint:js": "eslint index.js package.json rules/ test/ --ext js,json",
     "lint": "npm run lint:js",
-    "test": "npm run lint && nyc ava"
+    "test": "npm run lint && c8 ava",
+    "coverage": "c8 report -r lcov"
   },
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
@@ -15,11 +16,11 @@
     "@freaktechnik/eslint-config-test": "^9.2.1",
     "@typescript-eslint/parser": "^6.20.0",
     "ava": "^6.1.1",
+    "c8": "^9.1.0",
     "eslint": "^8.56.0",
     "eslint-ava-rule-tester": "^5.0.1",
     "eslint-plugin-eslint-plugin": "^5.3.0",
     "eslint-plugin-optimize-regex": "^1.2.1",
-    "nyc": "^15.1.0",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
