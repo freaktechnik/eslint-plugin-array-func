@@ -5,7 +5,7 @@ import eslintPlugin from "eslint-plugin-eslint-plugin";
 export default [
     ...freaktechnikConfigNode,
     eslintPlugin.configs["flat/recommended"],
-    freaktechnikConfigTest,
+    ...freaktechnikConfigTest,
     {
         files: ["**"],
         rules: {

@@ -13,7 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "@freaktechnik/eslint-config-node": "^10.0.3",
-    "@freaktechnik/eslint-config-test": "^10.0.3",
+    "@freaktechnik/eslint-config-test": "^10.0.6",
     "@typescript-eslint/parser": "^7.5.0",
     "ava": "^6.1.2",
     "c8": "^9.1.0",
