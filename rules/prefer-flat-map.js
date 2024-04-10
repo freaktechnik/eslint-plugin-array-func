@@ -7,14 +7,14 @@ export default {
     meta: {
         docs: {
             description: "Prefer using the flatMap over an immediate .flat() call after a .map().",
-            recommended: true
+            recommended: true,
         },
         fixable: "code",
         schema: [],
         type: "suggestion",
         messages: {
-            preferFlatMap: "Use flatMap instead of .map().flat()"
-        }
+            preferFlatMap: "Use flatMap instead of .map().flat()",
+        },
     },
     create(context) {
         return {
@@ -25,26 +25,26 @@ export default {
                     node: callee.property,
                     loc: {
                         start: node.callee.property.loc.start,
-                        end: callee.loc.end
+                        end: callee.loc.end,
                     },
                     messageId: "preferFlatMap",
                     fix(fixer) {
                         const [
-                                , endOfMap
+                                , endOfMap,
                             ] = node.range,
                             [
-                                , endOfFlat
+                                , endOfFlat,
                             ] = callee.range;
                         return [
                             fixer.replaceTextRange(node.callee.property.range, 'flatMap'),
                             fixer.removeRange([
                                 endOfMap,
-                                endOfFlat
-                            ])
+                                endOfFlat,
+                            ]),
                         ];
-                    }
+                    },
                 });
-            }
+            },
         };
-    }
+    },
 };

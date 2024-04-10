@@ -1,9 +1,9 @@
 import test from 'ava';
 import {
-    isMethod, isOnObject
+    isMethod, isOnObject,
 } from '../lib/helpers/call-expression.js';
 import {
-    MEMBER_EXPRESSION, IDENTIFIER
+    MEMBER_EXPRESSION, IDENTIFIER,
 } from '../lib/type.js';
 
 test('is method', (t) => {
@@ -12,9 +12,9 @@ test('is method', (t) => {
         callee: {
             type: MEMBER_EXPRESSION,
             property: {
-                name
-            }
-        }
+                name,
+            },
+        },
     }, name));
 });
 
@@ -25,17 +25,17 @@ test('not is method', (t) => {
         callee: {
             type: IDENTIFIER,
             property: {
-                name
-            }
-        }
+                name,
+            },
+        },
     }, name));
     t.false(isMethod({
         callee: {
             type: MEMBER_EXPRESSION,
             property: {
-                name: 'foo'
-            }
-        }
+                name: 'foo',
+            },
+        },
     }));
 });
 
@@ -45,27 +45,27 @@ test('is on object', (t) => {
         callee: {
             object: {
                 type: IDENTIFIER,
-                name
-            }
-        }
+                name,
+            },
+        },
     }, name));
 });
 
 test('is not on object', (t) => {
     const name = 'test';
     t.false(isOnObject({
-        callee: {}
+        callee: {},
     }, name));
     t.false(isOnObject({
         callee: {
             type: MEMBER_EXPRESSION,
-            name
-        }
+            name,
+        },
     }, name));
     t.false(isOnObject({
         callee: {
             type: IDENTIFIER,
-            name: 'foo'
-        }
+            name: 'foo',
+        },
     }, name));
 });

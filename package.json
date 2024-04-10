@@ -4,7 +4,7 @@
   "description": "Rules dealing with Array functions and methods.",
   "main": "index.js",
   "scripts": {
-    "lint:js": "eslint index.js package.json rules/ test/ --ext js,json",
+    "lint:js": "eslint index.js package.json rules/ test/",
     "lint": "npm run lint:js",
     "test": "npm run lint && c8 ava",
     "coverage": "c8 report -r lcov"
@@ -12,8 +12,8 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^9.2.1",
-    "@freaktechnik/eslint-config-test": "^9.2.1",
+    "@freaktechnik/eslint-config-node": "^10.0.3",
+    "@freaktechnik/eslint-config-test": "^10.0.3",
     "@typescript-eslint/parser": "^7.5.0",
     "ava": "^6.1.2",
     "c8": "^9.1.0",

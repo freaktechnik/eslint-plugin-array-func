@@ -2,7 +2,7 @@ import test from 'ava';
 import {
     ARROW_FUNCTION_EXPRESSION,
     MEMBER_EXPRESSION,
-    IDENTIFIER
+    IDENTIFIER,
 } from '../lib/type.js';
 
 test('Arrow function expression', (t) => {

@@ -4,8 +4,8 @@ import rule from '../../rules/avoid-reverse.js';
 
 const ruleTester = new AvaRuleTester(test, {
     parserOptions: {
-        ecmaVersion: 2015
-    }
+        ecmaVersion: 2015,
+    },
 });
 
 ruleTester.run('avoid-reverse', rule, {
@@ -15,7 +15,7 @@ ruleTester.run('avoid-reverse', rule, {
         'array.reduce((p, c) => p + c, 0)',
         'array.reduceRight((p, c) => p + c, 0)',
         'array.reverse()',
-        'array.reverse().map((r) => r + 1)'
+        'array.reverse().map((r) => r + 1)',
     ],
     invalid: [
         {
@@ -26,10 +26,10 @@ ruleTester.run('avoid-reverse', rule, {
                 line: 1,
                 data: {
                     reversed: 'reduceRight',
-                    methodName: 'reduce'
-                }
+                    methodName: 'reduce',
+                },
             } ],
-            output: 'array.reduceRight((p, c) => p + c, 0)'
+            output: 'array.reduceRight((p, c) => p + c, 0)',
         },
         {
             code: 'array.reverse().reduceRight((p, c) => p + c, 0)',
@@ -39,10 +39,10 @@ ruleTester.run('avoid-reverse', rule, {
                 line: 1,
                 data: {
                     reversed: 'reduce',
-                    methodName: 'reduceRight'
-                }
+                    methodName: 'reduceRight',
+                },
             } ],
-            output: 'array.reduce((p, c) => p + c, 0)'
-        }
-    ]
+            output: 'array.reduce((p, c) => p + c, 0)',
+        },
+    ],
 });

@@ -4,12 +4,12 @@
  */
 import {
     isMethod,
-    isOnObject
+    isOnObject,
 } from "../lib/helpers/call-expression.js";
 import { ARROW_FUNCTION_EXPRESSION } from "../lib/type.js";
 
 const arrayFunctions = {
-        from: 3
+        from: 3,
     },
     // All have param location 2
     methods = [
@@ -19,7 +19,7 @@ const arrayFunctions = {
         'find',
         'findIndex',
         'some',
-        'every'
+        'every',
     ],
     METHOD_ARG = 2,
     POS_TO_ARRAY = 1,
@@ -37,20 +37,20 @@ const arrayFunctions = {
             messageId: "unnecessaryThisArgStatic",
             data: {
                 name: node.callee.property.name,
-                argument: argument.name
+                argument: argument.name,
             },
             fix(fixer) {
                 const [
-                        , previousArgumentEnd
+                        , previousArgumentEnd,
                     ] = node.arguments[parameterPosition + FUNC_POS].range,
                     [
-                        , argumentEnd
+                        , argumentEnd,
                     ] = argument.range;
                 return fixer.removeRange([
                     previousArgumentEnd,
-                    argumentEnd
+                    argumentEnd,
                 ]);
-            }
+            },
         });
     },
     checkMemberFunction = (functionName, node, context) => {
@@ -65,8 +65,8 @@ const arrayFunctions = {
             messageId: "unnecessaryThisArgMethod",
             data: {
                 name: node.callee.property.name,
-                argument: argument.name || argument.value || argument.raw
-            }
+                argument: argument.name || argument.value || argument.raw,
+            },
         });
     };
 
@@ -74,15 +74,15 @@ export default {
     meta: {
         docs: {
             description: "Avoid the this parameter when providing arrow function as callback in array functions.",
-            recommended: true
+            recommended: true,
         },
         schema: [],
         fixable: "code",
         type: "suggestion",
         messages: {
             unnecessaryThisArgMethod: "Unnecessary this argument '{{ argument }}' with an arrow function as callback to {{ name }}",
-            unnecessaryThisArgStatic: "Unnecessary this argument '{{ argument }}' with arrow function as callback to Array.{{ name }}"
-        }
+            unnecessaryThisArgStatic: "Unnecessary this argument '{{ argument }}' with arrow function as callback to Array.{{ name }}",
+        },
     },
     create(context) {
         return {
@@ -94,7 +94,7 @@ export default {
                 for(const functionName of methods) {
                     checkMemberFunction(functionName, node, context);
                 }
-            }
+            },
         };
-    }
+    },
 };

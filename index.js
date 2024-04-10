@@ -12,7 +12,7 @@ import preferFlat from "./rules/prefer-flat.js";
 const index = {
     meta: {
         name: "eslint-plugin-array-func",
-        version: "5.0.1"
+        version: "5.0.1",
     },
     rules: {
         "from-map": fromMap,
@@ -20,9 +20,9 @@ const index = {
         "prefer-array-from": preferArrayFrom,
         "avoid-reverse": avoidReverse,
         "prefer-flat-map": preferFlatMap,
-        "prefer-flat": preferFlat
+        "prefer-flat": preferFlat,
     },
-    configs: {}
+    configs: {},
 };
 index.configs.recommended = {
     plugins: { "array-func": index },
@@ -30,8 +30,8 @@ index.configs.recommended = {
         "array-func/from-map": "error",
         "array-func/no-unnecessary-this-arg": "error",
         "array-func/prefer-array-from": "error",
-        "array-func/avoid-reverse": "error"
-    }
+        "array-func/avoid-reverse": "error",
+    },
 };
 index.configs.all = {
     plugins: { "array-func": index },
@@ -41,8 +41,8 @@ index.configs.all = {
         "array-func/prefer-array-from": "error",
         "array-func/avoid-reverse": "error",
         "array-func/prefer-flat-map": "error",
-        "array-func/prefer-flat": "error"
-    }
+        "array-func/prefer-flat": "error",
+    },
 };
 
 export default index;

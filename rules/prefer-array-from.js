@@ -12,14 +12,14 @@ export default {
     meta: {
         docs: {
             description: "Prefer using Array.from over spreading an iterable in an array literal. Using Array.from also preserves the original type of TypedArrays while mapping.",
-            recommended: true
+            recommended: true,
         },
         schema: [],
         fixable: "code",
         type: "problem",
         messages: {
-            preferArrayFrom: "Use Array.from to convert from iterable to array"
-        }
+            preferArrayFrom: "Use Array.from to convert from iterable to array",
+        },
     },
     create(context) {
         return {
@@ -31,9 +31,9 @@ export default {
                     fix(fixer) {
                         const { sourceCode } = context;
                         return fixer.replaceText(node, `Array.from(${sourceCode.getText(firstElement(node.elements).argument)})`);
-                    }
+                    },
                 });
-            }
+            },
         };
-    }
+    },
 };

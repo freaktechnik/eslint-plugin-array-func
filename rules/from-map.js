@@ -6,7 +6,7 @@ import { ARROW_FUNCTION_EXPRESSION } from "../lib/type.js";
 
 const ALL_PARAMS = [
     { name: 'item' },
-    { name: 'index' }
+    { name: 'index' },
 ];
 
 function isFunction(node) {
@@ -17,14 +17,14 @@ export default {
     meta: {
         docs: {
             description: "Prefer using the mapFn callback of Array.from over an immediate .map() call.",
-            recommended: true
+            recommended: true,
         },
         fixable: "code",
         type: "suggestion",
         schema: [],
         messages: {
-            useMapCb: "Use mapFn callback of Array.from instead of map()"
-        }
+            useMapCb: "Use mapFn callback of Array.from instead of map()",
+        },
     },
     create(context) {
         return {
@@ -33,7 +33,7 @@ export default {
                     callee = node.parent,
                     [
                         mapCallback,
-                        mapThisArgument
+                        mapThisArgument,
                     ] = callee.parent.arguments;
                 node = callee.parent;
 
@@ -50,7 +50,7 @@ export default {
                     node: callee.property,
                     loc: {
                         start: parent.callee.loc.start,
-                        end: callee.loc.end
+                        end: callee.loc.end,
                     },
                     messageId: "useMapCb",
                     fix(fixer) {
@@ -65,7 +65,7 @@ export default {
                                 [
                                     _, // eslint-disable-line no-unused-vars
                                     callback,
-                                    thisArgument
+                                    thisArgument,
                                 ] = parent.arguments,
                                 parameters = callback.type === "Identifier"
                                     ? ALL_PARAMS
@@ -98,18 +98,18 @@ export default {
                             const lastCallback = getCallback(mapCallback, mapThisArgument, `${firstCallback}${restParameterString}`),
                                 [
                                     callbackStartLocation
-                                    , callbackEndLocation
+                                    , callbackEndLocation,
                                 ] = callback.range,
                                 [
-                                    , parentEndLocation
+                                    , parentEndLocation,
                                 ] = parent.range,
                                 [
-                                    , nodeEndLocation
+                                    , nodeEndLocation,
                                 ] = node.range,
                                 restParameters = sourceCode.getText().slice(callbackEndLocation, parentEndLocation);
                             return fixer.replaceTextRange([
                                 callbackStartLocation,
-                                nodeEndLocation
+                                nodeEndLocation,
                             ], `${functionStart}${lastCallback}${functionEnd}${restParameters}`);
                         }
 
@@ -117,15 +117,15 @@ export default {
                         const [ firstArgument ] = node.arguments,
                             [ argumentStartLocation ] = firstArgument.range,
                             [
-                                , parentEndLocation
+                                , parentEndLocation,
                             ] = parent.range;
                         return fixer.replaceTextRange([
                             parentEndLocation - FUNCTION_END.length,
-                            argumentStartLocation
+                            argumentStartLocation,
                         ], PARAM_SEPARATOR);
-                    }
+                    },
                 });
-            }
+            },
         };
-    }
+    },
 };

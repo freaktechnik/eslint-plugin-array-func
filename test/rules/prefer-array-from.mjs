@@ -4,8 +4,8 @@ import rule from '../../rules/prefer-array-from.js';
 
 const ruleTester = new AvaRuleTester(test, {
     parserOptions: {
-        ecmaVersion: 2015
-    }
+        ecmaVersion: 2015,
+    },
 });
 
 ruleTester.run('perfer-array-from', rule, {
@@ -14,7 +14,7 @@ ruleTester.run('perfer-array-from', rule, {
         'Array.from(iterable)',
         '[1, ...iterable]',
         '[1, 2, 3]',
-        '[iterable]'
+        '[iterable]',
     ],
     invalid: [
         {
@@ -22,27 +22,27 @@ ruleTester.run('perfer-array-from', rule, {
             errors: [ {
                 messageId: "preferArrayFrom",
                 column: 1,
-                line: 1
+                line: 1,
             } ],
-            output: 'Array.from(iterable)'
+            output: 'Array.from(iterable)',
         },
         {
             code: '[...[1, 2]]',
             errors: [ {
                 messageId: "preferArrayFrom",
                 column: 1,
-                line: 1
+                line: 1,
             } ],
-            output: 'Array.from([1, 2])'
+            output: 'Array.from([1, 2])',
         },
         {
             code: '[..."test"]',
             errors: [ {
                 messageId: "preferArrayFrom",
                 column: 1,
-                line: 1
+                line: 1,
             } ],
-            output: 'Array.from("test")'
-        }
-    ]
+            output: 'Array.from("test")',
+        },
+    ],
 });

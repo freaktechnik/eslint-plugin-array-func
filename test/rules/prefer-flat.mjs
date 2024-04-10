@@ -4,8 +4,8 @@ import rule from '../../rules/prefer-flat.js';
 
 const ruleTester = new AvaRuleTester(test, {
     parserOptions: {
-        ecmaVersion: 2018
-    }
+        ecmaVersion: 2018,
+    },
 });
 
 ruleTester.run('prefer-flat', rule, {
@@ -16,7 +16,7 @@ ruleTester.run('prefer-flat', rule, {
         'array.reduce((p, []) => p.concat({}), [])',
         'array.reduce((p, n) => p.concat(n), [1])',
         'array.reduce((p, n) => p.concat(n))',
-        'array.reduce((p, n) => p.concat(n, n), [])'
+        'array.reduce((p, n) => p.concat(n, n), [])',
     ],
     invalid: [
         {
@@ -24,18 +24,18 @@ ruleTester.run('prefer-flat', rule, {
             errors: [ {
                 messageId: 'preferFlat',
                 column: 1,
-                line: 1
+                line: 1,
             } ],
-            output: 'array.flat()'
+            output: 'array.flat()',
         },
         {
             code: 'array.reduce((p, n) => p.concat(n), [])',
             errors: [ {
                 messageId: 'preferFlat',
                 column: 1,
-                line: 1
+                line: 1,
             } ],
-            output: 'array.flat()'
-        }
-    ]
+            output: 'array.flat()',
+        },
+    ],
 });
