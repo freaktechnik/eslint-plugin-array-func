@@ -25,6 +25,7 @@ const index = {
     configs: {},
 };
 index.configs.recommended = {
+    name: 'array-func/recommended',
     plugins: { "array-func": index },
     rules: {
         "array-func/from-map": "error",
@@ -34,6 +35,7 @@ index.configs.recommended = {
     },
 };
 index.configs.all = {
+    name: 'array-func/all',
     plugins: { "array-func": index },
     rules: {
         "array-func/from-map": "error",
