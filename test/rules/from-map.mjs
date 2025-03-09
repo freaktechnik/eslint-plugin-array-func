@@ -4,7 +4,7 @@ import rule from '../../rules/from-map.js';
 import testCases from "../helpers/from-map-test-cases.mjs";
 
 const ruleTester = new AvaRuleTester(test, {
-    parserOptions: {
+    languageOptions: {
         ecmaVersion: 2015,
     },
 });

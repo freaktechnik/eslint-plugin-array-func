@@ -4,16 +4,19 @@ import eslintPlugin from "eslint-plugin-eslint-plugin";
 
 export default [
     ...freaktechnikConfigNode,
-    eslintPlugin.configs["flat/recommended"],
     ...freaktechnikConfigTest,
     {
-        files: ["**"],
+        files: [ "**" ],
         rules: {
-            "unicorn/prefer-module": "off"
-        }
+            "unicorn/prefer-module": "off",
+        },
     },
     {
-        files: ["test/rules/*.mjs"],
-        ...eslintPlugin.configs["flat/tests-recommended"]
-    }
+        files: ["rules/*.js"],
+        ...eslintPlugin.configs["flat/recommended"],
+    },
+    {
+        files: [ "test/rules/*.mjs" ],
+        ...eslintPlugin.configs["flat/tests-recommended"],
+    },
 ];

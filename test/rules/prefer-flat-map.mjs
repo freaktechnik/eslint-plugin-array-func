@@ -3,7 +3,7 @@ import AvaRuleTester from 'eslint-ava-rule-tester';
 import rule from '../../rules/prefer-flat-map.js';
 
 const ruleTester = new AvaRuleTester(test, {
-    parserOptions: {
+    languageOptions: {
         ecmaVersion: 2018,
     },
 });

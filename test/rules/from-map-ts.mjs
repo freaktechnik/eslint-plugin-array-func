@@ -2,15 +2,14 @@ import AvaRuleTester from "eslint-ava-rule-tester";
 import test from "ava";
 import rule from "../../rules/from-map.js";
 import testCases from '../helpers/from-map-test-cases.mjs';
-import { createRequire } from 'node:module';
+import typescriptParser from "@typescript-eslint/parser";
 
-const require = createRequire(import.meta.url),
-    ruleTester = new AvaRuleTester(test, {
-        parser: require.resolve('@typescript-eslint/parser'),
-        parserOptions: {
-            ecmaVersion: 2020,
-            sourceType: 'module',
-        },
-    });
+const ruleTester = new AvaRuleTester(test, {
+    languageOptions: {
+        parser: typescriptParser,
+        ecmaVersion: 2020,
+        sourceType: 'module',
+    },
+});
 
 ruleTester.run('from-map', rule, testCases);
