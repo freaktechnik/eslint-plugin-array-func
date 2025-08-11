@@ -13,10 +13,10 @@ export default [
     },
     {
         files: ["rules/*.js"],
-        ...eslintPlugin.configs["flat/recommended"],
+        ...eslintPlugin.configs["rules-recommended"],
     },
     {
         files: [ "test/rules/*.mjs" ],
-        ...eslintPlugin.configs["flat/tests-recommended"],
+        ...eslintPlugin.configs["tests-recommended"],
     },
 ];
