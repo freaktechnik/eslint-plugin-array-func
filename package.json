@@ -12,7 +12,7 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^10.0.3",
+    "@freaktechnik/eslint-config-node": "^11.0.0",
     "@freaktechnik/eslint-config-test": "^11.0.0",
     "@typescript-eslint/parser": "^8.38.0",
     "ava": "^6.4.1",
