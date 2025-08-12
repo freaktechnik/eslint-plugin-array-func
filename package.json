@@ -21,7 +21,7 @@
     "eslint-ava-rule-tester": "^5.0.1",
     "eslint-plugin-eslint-plugin": "^7.0.0",
     "eslint-plugin-optimize-regex": "^1.2.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "peerDependencies": {
     "eslint": ">=8.51.0"
