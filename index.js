@@ -13,6 +13,7 @@ const index = {
     meta: {
         name: "eslint-plugin-array-func",
         version: "5.0.1",
+        namespace: "array-func",
     },
     rules: {
         "from-map": fromMap,
