@@ -12,8 +12,8 @@
   "author": "Martin Giger (https://humanoids.be)",
   "license": "MIT",
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^11.0.1",
-    "@freaktechnik/eslint-config-test": "^11.0.1",
+    "@freaktechnik/eslint-config-node": "^12.0.0",
+    "@freaktechnik/eslint-config-test": "^12.0.0",
     "@typescript-eslint/parser": "^8.47.0",
     "ava": "^6.4.1",
     "c8": "^10.1.3",
