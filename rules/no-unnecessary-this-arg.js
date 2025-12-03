@@ -87,8 +87,11 @@ export default {
     create(context) {
         return {
             "CallExpression:exit"(node) {
-                for(const functionName in arrayFunctions) {
-                    checkArrayFunction(functionName, arrayFunctions[functionName], node, context);
+                for(const [
+                    functionName,
+                    functionBody,
+                ] of Object.entries(arrayFunctions)) {
+                    checkArrayFunction(functionName, functionBody, node, context);
                 }
 
                 for(const functionName of methods) {
