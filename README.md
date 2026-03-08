@@ -85,12 +85,12 @@ const mappedArray = arr.map((t) => t.id);
 To use this rule, your `eslint.config.js` should at least contain the following:
 
 ```js
-import arrayFunc from "eslint-plugin-array-func";
+import arrayFunctions from "eslint-plugin-array-func";
 
 export default [
   {
     plugins: {
-      "array-func": arrayFunc
+      "array-func": arrayFunctions
     },
     rules: {
       "array-func/from-map": "error"
@@ -179,12 +179,12 @@ array.filter(this.isGood, this);
 To use this rule, your `eslint.config.js` should at least contain the following:
 
 ```js
-import arrayFunc from "eslint-plugin-array-func";
+import arrayFunctions from "eslint-plugin-array-func";
 
 export default [
   {
     plugins: {
-      "array-func": arrayFunc
+      "array-func": arrayFunctions
     },
     rules: {
       "array-func/no-unnecessary-this-arg": "error"
@@ -229,12 +229,12 @@ const characterArray = Array.from("string");
 To use this rule, your `eslint.config.js` should at least contain the following:
 
 ```js
-import arrayFunc from "eslint-plugin-array-func";
+import arrayFunctions from "eslint-plugin-array-func";
 
 export default [
   {
     plugins: {
-      "array-func": arrayFunc
+      "array-func": arrayFunctions
     },
     rules: {
       "array-func/prefer-array-from": "error"
@@ -281,12 +281,12 @@ const reverseMap = array.reverse().map((r) => r + 1);
 To use this rule, your `eslint.config.js` should at least contain the following:
 
 ```js
-import arrayFunc from "eslint-plugin-array-func";
+import arrayFunctions from "eslint-plugin-array-func";
 
 export default [
   {
     plugins: {
-      "array-func": arrayFunc
+      "array-func": arrayFunctions
     },
     rules: {
       "array-func/avoid-reverse": "error"
@@ -334,12 +334,12 @@ const flatWithDepth = array.map((p) => p).flat(99);
 To use this rule, your `eslint.config.js` should at least contain the following:
 
 ```js
-import arrayFunc from "eslint-plugin-array-func";
+import arrayFunctions from "eslint-plugin-array-func";
 
 export default [
   {
     plugins: {
-      "array-func": arrayFunc
+      "array-func": arrayFunctions
     },
     rules: {
       "array-func/prefer-flat-map": "error"
@@ -385,12 +385,12 @@ const otherReduce = array.reduce((p, n) => n + p, 0);
 To use this rule, your `eslint.config.js` should at least contain the following:
 
 ```js
-import arrayFunc from "eslint-plugin-array-func";
+import arrayFunctions from "eslint-plugin-array-func";
 
 export default [
   {
     plugins: {
-      "array-func": arrayFunc
+      "array-func": arrayFunctions
     },
     rules: {
       "array-func/prefer-flat": "error"
@@ -417,10 +417,10 @@ Rule | Error level | Fixable
 To enable this configuration, import the plugin and add the config to your eslint config array:
 
 ```js
-import arrayFunc from "eslint-plugin-array-func";
+import arrayFunctions from "eslint-plugin-array-func";
 
 export default [
-  arrayFunc.configs.recommended,
+  arrayFunctions.configs.recommended,
 ];
 ```
 
@@ -444,10 +444,10 @@ Rule | Error level | Fixable
 To enable this configuration, import the plugin and add the config to your eslint config array:
 
 ```js
-import arrayFunc from "eslint-plugin-array-func";
+import arrayFunctions from "eslint-plugin-array-func";
 
 export default [
-  arrayFunc.configs.all,
+  arrayFunctions.configs.all,
 ];
 ```
 
