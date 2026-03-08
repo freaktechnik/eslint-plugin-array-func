@@ -9,7 +9,7 @@ import avoidReverse from "./rules/avoid-reverse.js";
 import preferFlatMap from "./rules/prefer-flat-map.js";
 import preferFlat from "./rules/prefer-flat.js";
 
-const arrayFunc = {
+const arrayFunctions = {
     meta: {
         name: "eslint-plugin-array-func",
         version: "5.0.1",
@@ -25,9 +25,9 @@ const arrayFunc = {
     },
     configs: {},
 };
-arrayFunc.configs.recommended = {
+arrayFunctions.configs.recommended = {
     name: 'array-func/recommended',
-    plugins: { "array-func": arrayFunc },
+    plugins: { "array-func": arrayFunctions },
     rules: {
         "array-func/from-map": "error",
         "array-func/no-unnecessary-this-arg": "error",
@@ -35,9 +35,9 @@ arrayFunc.configs.recommended = {
         "array-func/avoid-reverse": "error",
     },
 };
-arrayFunc.configs.all = {
+arrayFunctions.configs.all = {
     name: 'array-func/all',
-    plugins: { "array-func": arrayFunc },
+    plugins: { "array-func": arrayFunctions },
     rules: {
         "array-func/from-map": "error",
         "array-func/no-unnecessary-this-arg": "error",
@@ -48,4 +48,4 @@ arrayFunc.configs.all = {
     },
 };
 
-export default arrayFunc;
+export default arrayFunctions;
