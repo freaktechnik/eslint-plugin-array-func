@@ -17,7 +17,7 @@
     "@typescript-eslint/parser": "^8.59.2",
     "ava": "^8.0.0",
     "c8": "^11.0.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.3.0",
     "eslint-ava-rule-tester": "^5.0.1",
     "eslint-plugin-eslint-plugin": "^7.3.3",
     "eslint-plugin-optimize-regex": "^1.2.1",
