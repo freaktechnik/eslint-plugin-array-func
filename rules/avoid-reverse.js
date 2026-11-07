@@ -21,6 +21,7 @@ export default {
         messages: {
             avoidReverse: "Prefer using {{ reversed }} over reversing the array and {{ methodName }}",
         },
+        languages: [ "js/js" ],
     },
     create(context) {
         return {

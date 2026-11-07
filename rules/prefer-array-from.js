@@ -20,6 +20,7 @@ export default {
         messages: {
             preferArrayFrom: "Use Array.from to convert from iterable to array",
         },
+        languages: [ "js/js" ],
     },
     create(context) {
         return {

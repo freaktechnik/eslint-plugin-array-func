@@ -34,6 +34,7 @@ arrayFunctions.configs.recommended = {
         "array-func/prefer-array-from": "error",
         "array-func/avoid-reverse": "error",
     },
+    language: "js/js",
 };
 arrayFunctions.configs.all = {
     name: 'array-func/all',
@@ -46,6 +47,7 @@ arrayFunctions.configs.all = {
         "array-func/prefer-flat-map": "error",
         "array-func/prefer-flat": "error",
     },
+    language: "js/js",
 };
 
 export default arrayFunctions;

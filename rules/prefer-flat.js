@@ -21,6 +21,7 @@ export default {
         messages: {
             preferFlat: "Use flat to flatten an array",
         },
+        languages: [ "js/js" ],
     },
     create(context) {
         return {

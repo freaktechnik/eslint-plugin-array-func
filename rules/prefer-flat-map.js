@@ -15,6 +15,7 @@ export default {
         messages: {
             preferFlatMap: "Use flatMap instead of .map().flat()",
         },
+        languages: [ "js/js" ],
     },
     create(context) {
         return {

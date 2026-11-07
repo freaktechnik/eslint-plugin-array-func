@@ -29,6 +29,7 @@ export default {
         messages: {
             useMapCb: "Use mapFn callback of Array.from instead of map()",
         },
+        languages: [ "js/js" ],
     },
     create(context) {
         return {

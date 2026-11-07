@@ -83,6 +83,7 @@ export default {
             unnecessaryThisArgMethod: "Unnecessary this argument '{{ argument }}' with an arrow function as callback to {{ name }}",
             unnecessaryThisArgStatic: "Unnecessary this argument '{{ argument }}' with arrow function as callback to Array.{{ name }}",
         },
+        languages: [ "js/js" ],
     },
     create(context) {
         return {
