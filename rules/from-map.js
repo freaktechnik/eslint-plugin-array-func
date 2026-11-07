@@ -5,9 +5,13 @@
 import { ARROW_FUNCTION_EXPRESSION } from "../lib/type.js";
 
 const ALL_PARAMS = [
-    { name: 'item' },
-    { name: 'index' },
-];
+        { name: 'item' },
+        { name: 'index' },
+    ],
+    OMIT_ITEM = 1,
+    HAS_CBK = 2,
+    PARAM_SEPARATOR = ", ",
+    FUNCTION_END = ")";
 
 function isFunction(node) {
     return node.type === "ArrowFunctionExpression" || node.type === "FunctionExpression";
@@ -54,15 +58,11 @@ export default {
                     },
                     messageId: "useMapCb",
                     fix(fixer) {
-                        const HAS_CBK = 2,
-                            PARAM_SEPARATOR = ", ",
-                            FUNCTION_END = ")",
-                            { sourceCode } = context;
+                        const { sourceCode } = context;
 
                         // Merge the from and map callbacks
                         if(parent.arguments.length >= HAS_CBK) {
-                            const OMIT_ITEM = 1,
-                                [
+                            const [
                                     _, // eslint-disable-line no-unused-vars
                                     callback,
                                     thisArgument,

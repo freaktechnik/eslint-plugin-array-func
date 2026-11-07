@@ -2,18 +2,31 @@
   "name": "eslint-plugin-array-func",
   "version": "5.1.1",
   "description": "Rules dealing with Array functions and methods.",
-  "main": "index.js",
+  "license": "MIT",
+  "repository": "github:freaktechnik/eslint-plugin-array-func",
+  "bugs": "https://github.com/freaktechnik/eslint-plugin-array-func/issues",
+  "author": "Martin Giger (https://humanoids.be)",
+  "type": "module",
+  "main": "./index.js",
+  "engines": {
+    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+  },
+  "publishConfig": {
+    "provenance": true
+  },
   "scripts": {
     "lint:js": "eslint index.js package.json rules/ test/",
     "lint": "npm run lint:js",
     "test": "npm run lint && c8 ava",
-    "coverage": "c8 report -r lcov"
+    "coverage": "c8 report --reporter lcov"
   },
-  "author": "Martin Giger (https://humanoids.be)",
-  "license": "MIT",
+  "keywords": [
+    "eslint",
+    "eslintplugin"
+  ],
   "devDependencies": {
-    "@freaktechnik/eslint-config-node": "^13.0.0",
-    "@freaktechnik/eslint-config-test": "^13.0.0",
+    "@freaktechnik/eslint-config-node": "^14.1.0",
+    "@freaktechnik/eslint-config-test": "^14.1.0",
     "@typescript-eslint/parser": "^8.72.1",
     "ava": "^8.2.0",
     "c8": "^12.0.0",
@@ -26,34 +39,16 @@
   "peerDependencies": {
     "eslint": ">=8.51.0"
   },
-  "keywords": [
-    "eslint",
-    "eslintplugin"
-  ],
   "nyc": {
     "reporter": [
       "lcov",
       "text"
     ]
   },
-  "engines": {
-    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/freaktechnik/eslint-plugin-array-func.git"
-  },
-  "bugs": {
-    "url": "https://github.com/freaktechnik/eslint-plugin-array-func/issues"
-  },
   "ava": {
     "files": [
       "test/**/*",
       "!test/helpers"
     ]
-  },
-  "publishConfig": {
-    "provenance": true
-  },
-  "type": "module"
+  }
 }
