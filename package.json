@@ -20,6 +20,11 @@
     "test": "npm run lint && c8 ava",
     "coverage": "c8 report --reporter lcov"
   },
+  "files": [
+    "index.js",
+    "lib/**/*.js",
+    "rules/*.js"
+  ],
   "keywords": [
     "eslint",
     "eslintplugin"
